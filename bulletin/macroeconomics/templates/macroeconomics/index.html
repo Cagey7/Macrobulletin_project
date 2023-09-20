@@ -1,0 +1,24 @@
+{% extends "macroeconomics/layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Разделы</h2>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    {% for topic in topics%}
+                        <a href="{% url 'topic' topic.pk %}" style="text-decoration: none;"><li class="mb-2"><div class="border p-2 bg-success text-white rounded" >{{ topic.name }}</div></li> </a>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <h2>Экономические показатели</h2>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    {% for economic_index in economic_indices %}
+                        <a href="{% url 'economic_index' economic_index.pk %}" style="text-decoration: none;"><li class="mb-2"><div class="border p-2 bg-secondary text-white rounded">{{ economic_index.name }}</div></li></a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

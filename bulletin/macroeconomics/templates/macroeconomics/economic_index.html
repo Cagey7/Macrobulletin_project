@@ -1,0 +1,46 @@
+{% extends "macroeconomics/layout.html" %}
+{% load static %}
+
+{% block body %}
+<h1>Информация об {{ economic_index.name }}</h1>
+    <div id="excelData"></div>
+    <p>{{ economic_index.path }}</p>
+    <script>
+          var economicIndexPath = "{{ economic_index.path }}";
+            console.log(economicIndexPath);
+            var staticPath = "{% static 'tables/' %}" + economicIndexPath + ".xlsx";
+
+            console.log(staticPath);
+            
+        // Обработчик события при выборе файла
+        fetch(staticPath)
+         .then(response => response.blob())
+         .then(blob => {
+             var reader = new FileReader();
+
+             reader.onload = function (e) {
+                 var data = new Uint8Array(e.target.result);
+                 var workbook = XLSX.read(data, { type: 'array' });
+
+                 // Choose the first sheet in the file
+                 var sheetName = workbook.SheetNames[0];
+                 var worksheet = workbook.Sheets[sheetName];
+
+                 // Convert the sheet data to an HTML table
+                 var htmlTable = XLSX.utils.sheet_to_html(worksheet);
+
+                 // Display the HTML table
+                 document.getElementById('excelData').innerHTML = htmlTable;
+             };
+
+             reader.readAsArrayBuffer(blob);
+         })
+         .catch(error => {
+             console.error("Error loading Excel file:", error);
+         });
+
+    </script>
+    
+
+{% endblock %}
+
