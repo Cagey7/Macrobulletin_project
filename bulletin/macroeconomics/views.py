@@ -41,8 +41,10 @@ def topic(request, topic_id):
 
 
 def economic_index(request, economic_index_id):
+    tables = Table.objects.filter(macro_economic_index__id=economic_index_id)
     economic_index = Economic_index.objects.get(id=economic_index_id)
     context = {
+        "tables": tables,
         "economic_index": economic_index,
         "title": "Регистрация"
     }

@@ -13,3 +13,4 @@ class MacroeconomicsAdmin(admin.ModelAdmin):
 
 admin.site.register(Topic, MacroeconomicsAdmin)
 admin.site.register(Economic_index)
+admin.site.register(Table)

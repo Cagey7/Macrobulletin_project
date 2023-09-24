@@ -2,45 +2,49 @@
 {% load static %}
 
 {% block body %}
-<h1>Информация об {{ economic_index.name }}</h1>
-    <div id="excelData"></div>
-    <p>{{ economic_index.path }}</p>
-    <script>
-          var economicIndexPath = "{{ economic_index.path }}";
-            console.log(economicIndexPath);
-            var staticPath = "{% static 'tables/' %}" + economicIndexPath + ".xlsx";
+<p>{{ economic_index.name }}</p>
+    {% for table in tables %}
+        <div class="container">
+            <div class="row">
+                <div class="table" id="{{table.path}}"></div>
+            </div>
+          </div>
+        <br><br>
+        <p>{{ economic_index.path }}</p>
+        <script>
+            var economicIndexPath = "{{ table.path }}";
+                var staticPath = "{% static 'macroeconomics/tables/' %}" + economicIndexPath + ".xlsx?v=" + new Date().getTime();
+                console.log(staticPath);
+                
+            // Обработчик события при выборе файла
+            fetch(staticPath)
+            .then(response => response.blob())
+            .then(blob => {
+                var reader = new FileReader();
 
-            console.log(staticPath);
-            
-        // Обработчик события при выборе файла
-        fetch(staticPath)
-         .then(response => response.blob())
-         .then(blob => {
-             var reader = new FileReader();
+                reader.onload = function (e) {
+                    var data = new Uint8Array(e.target.result);
+                    var workbook = XLSX.read(data, { type: 'array' });
 
-             reader.onload = function (e) {
-                 var data = new Uint8Array(e.target.result);
-                 var workbook = XLSX.read(data, { type: 'array' });
+                    // Choose the first sheet in the file
+                    var sheetName = workbook.SheetNames[0];
+                    var worksheet = workbook.Sheets[sheetName];
 
-                 // Choose the first sheet in the file
-                 var sheetName = workbook.SheetNames[0];
-                 var worksheet = workbook.Sheets[sheetName];
+                    // Convert the sheet data to an HTML table
+                    var htmlTable = XLSX.utils.sheet_to_html(worksheet);
 
-                 // Convert the sheet data to an HTML table
-                 var htmlTable = XLSX.utils.sheet_to_html(worksheet);
+                    // Display the HTML table
+                    document.getElementById("{{table.path}}").innerHTML = htmlTable;
+                };
 
-                 // Display the HTML table
-                 document.getElementById('excelData').innerHTML = htmlTable;
-             };
+                reader.readAsArrayBuffer(blob);
+            })
+            .catch(error => {
+                console.error("Error loading Excel file:", error);
+            });
 
-             reader.readAsArrayBuffer(blob);
-         })
-         .catch(error => {
-             console.error("Error loading Excel file:", error);
-         });
-
-    </script>
-    
+        </script>
+    {% endfor %}
 
 {% endblock %}
 

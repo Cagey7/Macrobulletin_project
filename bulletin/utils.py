@@ -25,7 +25,8 @@ economic_indices = [
     ['ИНВЕСТИЦИИ В ОСНОВНОЙ КАПИТАЛ', 'capital_investment', 'МАКРОЭКОНОМИКА'],
     ['ИНВЕСТИЦИИ В ОСНОВНОЙ КАПИТАЛ ПО ИСТОЧНИКАМ ФИНАНСИРОВАНИЯ', 'capital_investment_financing', 'МАКРОЭКОНОМИКА'],
     ['СТАТИСТИКА ТРУДА ПО СТРАНАМ', 'employment_unemployment_average_salary', 'МАКРОЭКОНОМИКА'],
-    ['ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН И ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ', 'consumer_price_index', 'МАКРОЭКОНОМИКА'],
+    ['ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН И ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ', 'consumer_price_index1', 'МАКРОЭКОНОМИКА'],
+    ['ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН И ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ', 'consumer_price_index2', 'МАКРОЭКОНОМИКА'],
     ['ИНДЕКС ЦЕН НА СОЦИАЛЬНО-ЗНАЧИМЫЕ ПОТРЕБИТЕЛЬСКИЕ ТОВАРЫ', 'cpi_social_consumer_goods', 'МАКРОЭКОНОМИКА'],
     ['ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН ПО СТРАНАМ', 'cpi_by_country', 'МАКРОЭКОНОМИКА'],
     ['МЕЖДУНАРОДНЫЕ РЕЗЕРВЫ И КУРСЫ ВАЛЮТ', 'international_reserves_exchange_rates', 'МАКРОЭКОНОМИКА'],
@@ -116,6 +117,7 @@ economic_indices = [
 
 
 def delete_all():
+    Table.objects.all().delete()
     Economic_index.objects.all().delete()
     Topic.objects.all().delete()
 
@@ -129,11 +131,20 @@ def insert_topics(topics_data):
 def insert_economic_indices(economic_indices):
     for index in economic_indices:
         topic = Topic.objects.get(name=index[2])
-        insert_index = Economic_index(name=index[0], path=index[1], macro_topic=topic)
-        insert_index.save()
+        if not Economic_index.objects.filter(name=index[0]).exists():
+            insert_index = Economic_index(name=index[0], macro_topic=topic)
+            insert_index.save()
+
+
+def insert_tables(economic_indices):
+    for index in economic_indices:
+        economic_index = Economic_index.objects.get(name=index[0])
+        table = Table(path=index[1], macro_economic_index=economic_index)
+        table.save()
 
 
 def update_topics():
     delete_all()
     insert_topics(topics_data)
     insert_economic_indices(economic_indices)
+    insert_tables(economic_indices)
