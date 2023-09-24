@@ -4,21 +4,33 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h2>Разделы</h2>
-                <ul style="list-style-type: none; padding-left: 0;">
-                    {% for topic in topics%}
-                        <a href="{% url 'topic' topic.pk %}" style="text-decoration: none;"><li class="mb-2"><div class="border p-2 bg-success text-white rounded" >{{ topic.name }}</div></li> </a>
+                <div class="header-info">Разделы</div>
+                <ul class="list-group">
+                    {% for topic in topics %}
+                        <a href="{% url 'topic' topic.pk %}" style="text-decoration: none;">
+                            <li class="list-group-item list-group-item-primary">{{ topic.name }}</li>
+                        </a>
                     {% endfor %}
                 </ul>
             </div>
+            {% if economic_indices %}
             <div class="col-md-8">
-                <h2>Экономические показатели</h2>
-                <ul style="list-style-type: none; padding-left: 0;">
+                <div class="header-info">Экономические показатели</div>
+                <ul class="list-group">
                     {% for economic_index in economic_indices %}
-                        <a href="{% url 'economic_index' economic_index.pk %}" style="text-decoration: none;"><li class="mb-2"><div class="border p-2 bg-secondary text-white rounded">{{ economic_index.name }}</div></li></a>
+                    <a href="{% url 'economic_index' economic_index.pk %}" style="text-decoration: none;">
+                        <li class="list-group-item list-group-item-dark">{{ economic_index.name }}</li>
+                    </a>
                     {% endfor %}
                 </ul>
             </div>
+            {% else %}
+            <div class="col-md-8">
+                <div class="about-info">
+                    Выберите раздел, чтобы получить данные о показателях.
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

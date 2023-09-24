@@ -2,15 +2,10 @@
 {% load static %}
 
 {% block body %}
-<p>{{ economic_index.name }}</p>
+<div class="index-header-info">{{ economic_index.name }}</div>
     {% for table in tables %}
-        <div class="container">
-            <div class="row">
-                <div class="table" id="{{table.path}}"></div>
-            </div>
-          </div>
+        <div class="table-container" id="{{table.path}}"></div>
         <br><br>
-        <p>{{ economic_index.path }}</p>
         <script>
             var economicIndexPath = "{{ table.path }}";
                 var staticPath = "{% static 'macroeconomics/tables/' %}" + economicIndexPath + ".xlsx?v=" + new Date().getTime();

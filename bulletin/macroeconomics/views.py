@@ -35,7 +35,16 @@ def topic(request, topic_id):
     context = {
         "topics": topics,
         "economic_indices": economic_indices,
-        "title": "Регистрация"
+        "title": "Макроэкономика"
+    }
+    return render(request, "macroeconomics/topic.html", context=context)
+
+
+def main_topic(request):
+    topics = Topic.objects.all()
+    context = {
+        "topics": topics,
+        "title": "Макроэкономика"
     }
     return render(request, "macroeconomics/topic.html", context=context)
 

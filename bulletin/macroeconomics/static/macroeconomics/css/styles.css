@@ -1,51 +1,55 @@
-/* Добавляем рамки для таблицы и ячеек
-table {
-    border-collapse: collapse;
-    width: 100%;
+.header-info {
+    text-align: center;
+    font-size: 28px;
 }
 
-th, td {
-    border: 1px solid #000;
-    padding: 8px;
-    text-align: left;
-} */
+.about-info {
+    margin-top: 100px; 
+    text-align: center; 
+    font-size: 22px;
+}
 
-/* Стиль таблицы */
-
-
-
+.index-header-info {
+    text-align: center;
+    font-size: 22px;
+}
 
 /* Стили для таблицы */
-.table {
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку при необходимости */
+    margin: 0 auto;
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.table th, .table td {
+table th, table td {
     padding: 8px;
     text-align: left;
-    border: 1px solid #929292; /* Более темные границы */
+    border: 1px solid #929292;
 }
 
-/* Выделение строки при наведении, кроме первой строки */
-.table tr:not(:first-child):hover {
+table tr:not(:first-child):hover {
     background-color: #b9b9b9;
 }
 
-/* Окраска заголовка в другой цвет и выравнивание по центру */
-.table th {
+table th {
     background-color: #007bff;
     color: #ffffff;
     text-align: center;
 }
 
-/* Разные цвета для строк */
-.table tr:nth-child(odd) {
-    background-color: #f2f2f2; /* Цвет для нечетных строк */
+table tr:nth-child(odd) {
+    background-color: #f2f2f2;
 }
 
-/* Окраска первой строки в другой цвет */
-.table tr:first-child {
-    background-color: #a996dd; /* Цвет первой строки */
-    color: #ffffff; /* Цвет текста в первой строке */
+table tr:first-child {
+    background-color: #a996dd;
+    color: #ffffff;
 }
+
+
+
