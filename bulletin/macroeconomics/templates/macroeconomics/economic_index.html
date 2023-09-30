@@ -5,7 +5,7 @@
 <div class="index-header-info">{{ economic_index.name }}</div>
     {% for table in tables %}
         <div class="table-container" id="{{table.path}}"></div>
-        <br><br>
+        <br>
         <script>
             var economicIndexPath = "{{ table.path }}";
                 var staticPath = "{% static 'macroeconomics/tables/' %}" + economicIndexPath + ".xlsx?v=" + new Date().getTime();
@@ -39,6 +39,9 @@
             });
 
         </script>
+
+        <a href="{% static 'macroeconomics/tables/' %}{{ table.path }}.xlsx">Скачать таблицу</a>
+        <br><br>
     {% endfor %}
 
 {% endblock %}

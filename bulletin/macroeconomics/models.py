@@ -3,7 +3,8 @@ from django.urls import reverse
 
 
 class Topic(models.Model):
-    name = models.CharField(max_length=128, verbose_name="Название разделала")
+    name = models.CharField(max_length=127, verbose_name="Название разделала")
+    slug = models.CharField(max_length=127, unique=True, null=True)
     
 
     def __str__(self):
@@ -22,6 +23,7 @@ class Topic(models.Model):
 
 class Economic_index(models.Model):
     name = models.CharField(max_length=255, unique=True)
+    slug = models.CharField(max_length=127, unique=True, null=True)
     not_disabled = models.BooleanField(default=True)
     macro_topic = models.ForeignKey("Topic", on_delete=models.PROTECT)
     

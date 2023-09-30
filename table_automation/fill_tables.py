@@ -19,7 +19,7 @@ class FillTable(Automation):
 
     def create_quarter_table(self, names, sql, table_name, data_type, index_name, start_year=None):
         description = {"tenge": ["в тенге", "Год"], "percent": ["в %", "Год"], "thousand_tenge": ["в тыс тенге", "Год"]}
-        excel_path = os.path.join(self.excel_path, table_name)
+        excel_path = os.path.join(table_name)
         workbook = Workbook()
         sheet = workbook.active
 
@@ -32,17 +32,17 @@ class FillTable(Automation):
         date_start = date(int(start_year), 1, 1)
 
         condition_values = []
-        for _ in range(2):
-            for name in names:
-                condition_values.append(name[1])
+
+        for name in names:
+            condition_values.append(name[1])
 
         self.cur.execute(
             sql, (
                 tuple(condition_values),
                 date_start, 
-                date_start+timedelta(days=365),
+                date_start+timedelta(days=366),
                 tuple(condition_values), 
-                date_start+timedelta(days=365)+timedelta(days=1), 
+                date_start+timedelta(days=367), 
                 date_end
             )
         )
@@ -259,17 +259,17 @@ class FillTable(Automation):
         fillTable.create_quarter_table(industry_types_names, avsalary_byactivity_sql, 
                                         "average_salary_by_economic_activity_in_thousand_tenge.xlsx", "tenge", 
                                         "СРЕДНЕМЕСЯЧНАЯ ЗАРАБОТНАЯ ПЛАТА ПО ВИДАМ ЭКОНОМИЧЕСКОЙ ДЕЯТЕЛЬНОСТИ (В ТЫС. ТЕНГЕ)")
-        fillTable.create_quarter_table(industry_types_names, nominal_wage_index_sql, "nominal_wage_index.xlsx", "percent", 
-                                        "ИНДЕКС НОМИНАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ")
-        fillTable.create_quarter_table(industry_types_names, real_wage_index_sql, "real_wage_index.xlsx", "percent", "ИНДЕКС РЕАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ")
-        fillTable.create_quarter_table(region_names, avnomsalary_by_region_sql, "average_nominal_salary_by_region_in_thousand_tenge.xlsx", 
-                                        "thousand_tenge", "СРЕДНЕМЕСЯЧНАЯ НОМИНАЛЬНАЯ ЗАРАБОТНАЯ ПЛАТА (В ТЫС. ТЕНГЕ) В РАЗРЕЗЕ РЕГИОНОВ")
-        fillTable.create_quarter_table(region_names, nomwage_index_by_region_sql, "nominal_wage_index_by_region.xlsx", 
-                                        "percent", "ИНДЕКС НОМИНАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ В РАЗРЕЗЕ РЕГИОНОВ")
-        fillTable.create_quarter_table(region_names, realwage_index_by_region_sql, "real_wage_index_by_region.xlsx", 
-                                        "percent", "ИНДЕКС РЕАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ В РАЗРЕЗЕ РЕГИОНОВ")
+        # fillTable.create_quarter_table(industry_types_names, nominal_wage_index_sql, "nominal_wage_index.xlsx", "percent", 
+        #                                 "ИНДЕКС НОМИНАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ")
+        # fillTable.create_quarter_table(industry_types_names, real_wage_index_sql, "real_wage_index.xlsx", "percent", "ИНДЕКС РЕАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ")
+        # fillTable.create_quarter_table(region_names, avnomsalary_by_region_sql, "average_nominal_salary_by_region_in_thousand_tenge.xlsx", 
+        #                                 "thousand_tenge", "СРЕДНЕМЕСЯЧНАЯ НОМИНАЛЬНАЯ ЗАРАБОТНАЯ ПЛАТА (В ТЫС. ТЕНГЕ) В РАЗРЕЗЕ РЕГИОНОВ")
+        # fillTable.create_quarter_table(region_names, nomwage_index_by_region_sql, "nominal_wage_index_by_region.xlsx", 
+        #                                 "percent", "ИНДЕКС НОМИНАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ В РАЗРЕЗЕ РЕГИОНОВ")
+        # fillTable.create_quarter_table(region_names, realwage_index_by_region_sql, "real_wage_index_by_region.xlsx", 
+        #                                 "percent", "ИНДЕКС РЕАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ В РАЗРЕЗЕ РЕГИОНОВ")
 
-        fillTable.consumer_price_index_fill_table()
+        # fillTable.consumer_price_index_fill_table()
 
 
 fillTable = FillTable("testtest", "postgres", "123456")

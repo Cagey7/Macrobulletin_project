@@ -10,13 +10,7 @@ from .forms import *
 def index(request):
     if not request.user.is_authenticated:
         return redirect("login")
-    
-    topics = Topic.objects.all()
-    topic_id = Topic.objects.get(name="МАКРОЭКОНОМИКА").pk
-    economic_indices = Economic_index.objects.filter(macro_topic_id=topic_id)
     context = {
-        "topics": topics,
-        "economic_indices": economic_indices,
         "title": "Главная страница"
     }
     return render(request, "macroeconomics/index.html", context=context)
@@ -59,7 +53,7 @@ def register(request):
     return render(request, "macroeconomics/register.html", context=context)
 
 
-def topic(request, topic_id):
+def macroindex(request, topic_id):
     if not request.user.is_authenticated:
         return redirect("login")
     
@@ -70,10 +64,10 @@ def topic(request, topic_id):
         "economic_indices": economic_indices,
         "title": "Макроэкономика"
     }
-    return render(request, "macroeconomics/topic.html", context=context)
+    return render(request, "macroeconomics/macroindex.html", context=context)
 
 
-def main_topic(request):
+def main_macroindex(request):
     if not request.user.is_authenticated:
         return redirect("login")
     
@@ -82,7 +76,7 @@ def main_topic(request):
         "topics": topics,
         "title": "Макроэкономика"
     }
-    return render(request, "macroeconomics/topic.html", context=context)
+    return render(request, "macroeconomics/macroindex.html", context=context)
 
 
 def economic_index(request, economic_index_id):
