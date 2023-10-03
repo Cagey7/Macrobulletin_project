@@ -9,7 +9,7 @@ FROM
 WHERE 
     region = 'РЕСПУБЛИКА КАЗАХСТАН' 
     AND activity_type IN %s
-    AND terrain_type = 'Всего' 
+    AND area_type = 'Всего' 
     AND enterprise_dimension = 'Всего' 
     AND gender = 'Всего' 
     AND created_at BETWEEN %s AND %s
@@ -100,7 +100,7 @@ FROM
 WHERE 
     activity_type = 'Всего' 
     AND region IN %s
-    AND terrain_type = 'Всего' 
+    AND area_type = 'Всего' 
     AND enterprise_dimension = 'Всего' 
     AND gender = 'Всего' 
     AND created_at BETWEEN %s AND %s

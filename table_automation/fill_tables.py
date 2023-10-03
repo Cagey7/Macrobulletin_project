@@ -272,7 +272,7 @@ class FillTable(Automation):
         # fillTable.consumer_price_index_fill_table()
 
 
-fillTable = FillTable("testtest", "postgres", "123456")
+fillTable = FillTable("taldau", "postgres", "123456")
 
 fillTable.create_all_tables()
 fillTable.db_disconnect()

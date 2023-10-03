@@ -130,9 +130,9 @@ class Automation:
 
 
     def collect_data_years(self):
-        self.insert_data("labor_productivity", "Производительность труда", "year", 
-                         "https://taldau.stat.gov.kz/ru/Api/GetIndexData/4023003?period=7&dics=67,915", 
-                         "region", "activity_type", "created_at", "value", "description")
+        # self.insert_data("labor_productivity", "Производительность труда", "year", 
+        #                  "https://taldau.stat.gov.kz/ru/Api/GetIndexData/4023003?period=7&dics=67,915", 
+        #                  "region", "activity_type", "created_at", "value", "description")
         # self.insert_data("labor_productivity", "Производительность труда", "quarter_accum", 
         #                  "https://taldau.stat.gov.kz/ru/Api/GetIndexData/4023003?period=9&dics=67,915", 
         #                  "region", "activity_type", "created_at", "value", "description")
@@ -154,9 +154,9 @@ class Automation:
         # self.insert_data("avmon_nom_wages", "Среднемесячная номинальная заработная плата", "year",
         #                 "https://taldau.stat.gov.kz/ru/Api/GetIndexData/702972?period=7&dics=68,859,776,2813,576",
         #                 "region", "activity_type", "area_type", "enterprise_dimension", "gender", "created_at", "value", "description")
-        # self.insert_data("avmon_nom_wages", "Среднемесячная номинальная заработная плата", "quarter",
-        #                 "https://taldau.stat.gov.kz/ru/Api/GetIndexData/702972?period=5&dics=68,859,681",
-        #                 "region", "activity_type", "economic_sectors", "created_at", "value", "description")
+        self.insert_data("avmon_nom_wages", "Среднемесячная номинальная заработная плата", "quarter",
+                        "https://taldau.stat.gov.kz/ru/Api/GetIndexData/702972?period=5&dics=68,859,681",
+                        "region", "activity_type", "economic_sectors", "created_at", "value", "description")
         # self.insert_data("nom_wages_index", "Индекс номинальной заработной платы", "year",
         #                 "https://taldau.stat.gov.kz/ru/Api/GetIndexData/702974?period=7&dics=68,859,2813,576,848",
         #                 "region", "activity_type", "enterprise_dimension", "gender", "periods_correlation", "created_at", "value", "description")
@@ -276,7 +276,24 @@ class Automation:
         # self.insert_data("population_year_beginning", "Численность населения на начало года", "year", 
         #                  "https://taldau.stat.gov.kz/ru/Api/GetIndexData/703831?period=7&dics=67,749,576,1433", 
         #                  'region', "area_type", "gender", "population_group", "created_at", "value", "description")
-        
+        # self.insert_data("avcap_pop_nom_income", "Среднедушевые номинальные денежные доходы населения", "year", 
+        #                  "https://taldau.stat.gov.kz/ru/Api/GetIndexData/704447?period=7&dics=67", 
+        #                  "region", "created_at", "value", "description")
+        # self.insert_data("nom_income_index", "Индекс номинальных денежных доходов в разрезе регионов", "year", 
+        #                  "https://taldau.stat.gov.kz/ru/Api/GetIndexData/704448?period=7&dics=67", 
+        #                  "region", "created_at", "value", "description")
+        # self.insert_data("nom_income_index", "Индекс номинальных денежных доходов в разрезе регионов", "quarter", 
+        #                  "https://taldau.stat.gov.kz/ru/Api/GetIndexData/704448?period=5&dics=67", 
+        #                  "region", "created_at", "value", "description")
+        # self.insert_data("real_income_index", "Индекс реальных денежных доходов в разрезе регионов", "year", 
+        #                  "https://taldau.stat.gov.kz/ru/Api/GetIndexData/704449?period=7&dics=67", 
+        #                  "region", "created_at", "value", "description")
+        # self.insert_data("real_income_index", "Индекс реальных денежных доходов в разрезе регионов", "quarter", 
+        #                  "https://taldau.stat.gov.kz/ru/Api/GetIndexData/704449?period=5&dics=67", 
+        #                  "region", "created_at", "value", "description")
+        # self.insert_data("pop_income_below_subsistence", "Доля населения, имеющего доходы ниже величины прожиточного минимума", "year", 
+        #                  "https://taldau.stat.gov.kz/ru/Api/GetIndexData/704498?period=7&dics=67,749", 
+        #                  "region", "area_type", "created_at", "value", "description")
 
         
     def collect_data_quarters(self):
@@ -291,6 +308,6 @@ class Automation:
         pass
 
 
-# automation = Automation("testtest", "postgres", "123456")
+# automation = Automation("taldau", "postgres", "123456")
 # automation.collect_data_years()
 # automation.db_disconnect()

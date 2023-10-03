@@ -53,10 +53,23 @@ def register(request):
     return render(request, "macroeconomics/register.html", context=context)
 
 
-def macroindex(request, topic_id):
+def macroindex(request, macroindex_slug):
     if not request.user.is_authenticated:
         return redirect("login")
     
+    if request.GET:
+        name = request.GET.get("name")
+        macro_economic_index_id = Economic_index.objects.get(slug=name).id
+        tables = Table.objects.filter(macro_economic_index__id=macro_economic_index_id)
+        economic_index = Economic_index.objects.get(id=macro_economic_index_id)
+        context = {
+            "tables": tables,
+            "economic_index": economic_index,
+            "title": "Таблица"
+        }
+        return render(request, "macroeconomics/economic_index.html", context=context)
+    
+    topic_id = Topic.objects.get(slug=macroindex_slug).id
     economic_indices = Economic_index.objects.filter(macro_topic_id=topic_id)
     topics = Topic.objects.all()
     context = {
@@ -77,19 +90,6 @@ def main_macroindex(request):
         "title": "Макроэкономика"
     }
     return render(request, "macroeconomics/macroindex.html", context=context)
-
-
-def economic_index(request, economic_index_id):
-    if not request.user.is_authenticated:
-        return redirect("login")
-    tables = Table.objects.filter(macro_economic_index__id=economic_index_id)
-    economic_index = Economic_index.objects.get(id=economic_index_id)
-    context = {
-        "tables": tables,
-        "economic_index": economic_index,
-        "title": "Регистрация"
-    }
-    return render(request, "macroeconomics/economic_index.html", context=context)
 
 
 def logout_user(request):

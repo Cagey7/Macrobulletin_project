@@ -3,6 +3,7 @@
 
 {% block body %}
 <div class="index-header-info">{{ economic_index.name }}</div>
+<a href="{{ request.META.HTTP_REFERER }}">Назад</a>
     {% for table in tables %}
         <div class="table-container" id="{{table.path}}"></div>
         <br>

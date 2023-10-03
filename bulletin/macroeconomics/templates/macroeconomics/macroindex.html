@@ -7,7 +7,7 @@
                 <div class="header-info">Разделы</div>
                 <ul class="list-group">
                     {% for topic in topics %}
-                        <a href="{% url 'macroindex' topic.pk %}" style="text-decoration: none;">
+                        <a href="{% url 'macroindex' topic.slug %}" style="text-decoration: none;">
                             <li class="list-group-item list-group-item-primary">{{ topic.name }}</li>
                         </a>
                     {% endfor %}
@@ -18,7 +18,7 @@
                 <div class="header-info">Экономические показатели</div>
                 <ul class="list-group">
                     {% for economic_index in economic_indices %}
-                    <a href="{% url 'economic_index' economic_index.pk %}" style="text-decoration: none;">
+                    <a href="{% url 'macroindex' economic_index.macro_topic.slug %}?name={{ economic_index.slug }}" style="text-decoration: none;">
                         <li class="list-group-item list-group-item-dark">{{ economic_index.name }}</li>
                     </a>
                     {% endfor %}
