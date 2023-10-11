@@ -313,3 +313,239 @@ WHERE
     AND area_type = 'Всего'
     AND created_at BETWEEN %s AND %s;
 '''
+
+#2.1
+labor_stats_sql = '''
+SELECT 	
+    'Рабочая сила', 
+    value, 
+    description, 
+    created_at  
+FROM 
+    work_force_year
+WHERE
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT         
+    'Занятость', 
+    value, 
+    description, 
+    created_at 
+FROM 
+    labor_statistics_year
+WHERE
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND activity_type = 'Всего'
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT         
+    activity_type, 
+    value, 
+    description, 
+    created_at 
+FROM 
+    labor_statistics_year
+WHERE
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND activity_type IN %s
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT 	
+    'Наемные работники', 
+    value, 
+    description, 
+    created_at  
+FROM 
+    wage_earners_year 
+WHERE 	
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND activity_type = 'Всего'
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT         
+    'Самозанятые', 
+    value, 
+    description, 
+    created_at  
+FROM 
+    self_employed_year
+WHERE
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND activity_type = 'Всего'
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT 	
+    'Численность безработных', 
+    value, 
+    description, 
+    created_at  
+FROM 
+    unemployed_number_year 
+WHERE 	
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT 	
+    'Уровень безработицы', 
+    value, 
+    description, 
+    created_at  
+FROM 
+    unemployment_rate_year 
+WHERE 	
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT 
+    'Средняя заработная плата',     
+    value, 
+    description, 
+    created_at  
+FROM 
+    average_wages_year
+WHERE
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND activity_type = 'Всего'
+    AND area_type = 'Всего'
+    AND enterprise_dimension = 'Всего'
+    AND gender = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT 	
+    'Рабочая сила', 
+    value, 
+    description, 
+    created_at  
+FROM 
+    work_force_quarter
+WHERE
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT         
+    'Занятость', 
+    value, 
+    description, 
+    created_at 
+FROM 
+    labor_statistics_quarter
+WHERE
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND activity_type = 'Всего'
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT         
+    activity_type, 
+    value, 
+    description, 
+    created_at 
+FROM 
+    labor_statistics_quarter
+WHERE
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND activity_type IN %s
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT 	
+    'Наемные работники', 
+    value, 
+    description, 
+    created_at  
+FROM 
+    wage_earners_quarter
+WHERE 	
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND activity_type = 'Всего'
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT         
+    'Самозанятые', 
+    value, 
+    description, 
+    created_at  
+FROM 
+    self_employed_quarter
+WHERE
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND activity_type = 'Всего'
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT 	
+    'Численность безработных', 
+    value, 
+    description, 
+    created_at  
+FROM 
+    unemployed_number_quarter 
+WHERE 	
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND area_type = 'Всего'
+    AND gender = 'Всего'
+    AND education_level = 'Всего'
+    AND age_intervals = 'Всего'
+    AND created_at BETWEEN %s AND %s
+UNION
+SELECT 
+    'Средняя заработная плата',     
+    value, 
+    description, 
+    created_at  
+FROM 
+    average_wages_quarter
+WHERE
+    region = 'РЕСПУБЛИКА КАЗАХСТАН'
+    AND activity_type = 'Всего'
+    AND economic_sectors = 'Экономика в целом'
+    AND created_at BETWEEN %s AND %s
+ORDER BY 
+    created_at;
+'''
