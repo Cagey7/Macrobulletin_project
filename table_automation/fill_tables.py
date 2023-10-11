@@ -22,6 +22,11 @@ class FillTable(Automation):
             return float(round(num/1000, 1))
         elif data_type == "percent":
             return float(round(num, 1))
+        elif data_type == "thousand_tenge_exp":
+            if num < 100:
+                return float(num)
+            else:
+                return float(round(num/1000, 1))
 
     def create_quarter_table(self, names, sql, table_name, data_type, index_name, start_year=None):
         description = {"tenge": ["в тенге", "Год"], "percent": ["в %", "Год"], "thousand_tenge": ["в тыс тенге", "Год"]}
@@ -116,7 +121,7 @@ class FillTable(Automation):
 
         print(f"Таблица {index_name} создана")
 
-    def create_year_table(self, names, sql, table_name=None, index_name=None, start_year=None):
+    def create_year_table(self, names, sql, table_name, data_type, desc_info, index_name, start_year=None):
         excel_path = os.path.join(self.excel_path, table_name)
 
         if start_year is None:
@@ -131,33 +136,63 @@ class FillTable(Automation):
         date_start_quarter = datetime(start_year + 4, 1, 1)
         date_end_quarter = datetime.now()
 
-        condition_values = []
-        for name in names[2:21]:
-            condition_values.append(name[1])
+        # исключение для одной таблицы СТАТИСТИКА ТРУДА
+        if data_type == "thousand_tenge_exp":
+            condition_values = []
+            for name in names[2:21]:
+                condition_values.append(name[1])
 
-        self.cur.execute(
-            sql, (
-                date_start_year, date_end_year,
-                date_start_year, date_end_year,
-                tuple(condition_values),
-                date_start_year, date_end_year,
-                date_start_year, date_end_year,
-                date_start_year, date_end_year,
-                date_start_year, date_end_year,
-                date_start_year, date_end_year,
-                date_start_year, date_end_year,
-                date_start_quarter, date_end_quarter,
-                date_start_quarter, date_end_quarter,
-                tuple(condition_values),
-                date_start_quarter, date_end_quarter,
-                date_start_quarter, date_end_quarter,
-                date_start_quarter, date_end_quarter,
-                date_start_quarter, date_end_quarter,
-                date_start_quarter, date_end_quarter,                
+            self.cur.execute(
+                sql, (
+                    date_start_year, date_end_year,
+                    date_start_year, date_end_year,
+                    tuple(condition_values),
+                    date_start_year, date_end_year,
+                    date_start_year, date_end_year,
+                    date_start_year, date_end_year,
+                    date_start_year, date_end_year,
+                    date_start_year, date_end_year,
+                    date_start_year, date_end_year,
+                    date_start_quarter, date_end_quarter,
+                    date_start_quarter, date_end_quarter,
+                    tuple(condition_values),
+                    date_start_quarter, date_end_quarter,
+                    date_start_quarter, date_end_quarter,
+                    date_start_quarter, date_end_quarter,
+                    date_start_quarter, date_end_quarter,
+                    date_start_quarter, date_end_quarter,                
+                )
             )
-        )
 
-        sorted_data = self.cur.fetchall()
+            sorted_data = self.cur.fetchall()
+        else:
+            self.cur.execute(
+                sql, (
+                    tuple([item[1] for item in names]),
+                    date_start_year, date_end_year,
+                    tuple([item[1] for item in names]),
+                    date_start_quarter, date_end_quarter,
+                )
+            )
+            sorted_data = self.cur.fetchall()
+
+        latest_date = max(sorted_data, key=lambda x: x[3])
+
+        for data in sorted_data:
+            if data == latest_date:
+                last_data = data[2]
+                break
+        
+        
+        # получение последнего квартала за последний год
+        # или получение интервала месяцев за последний год
+        if desc_info == "quarter":
+            last_desc_info,_,_,_ = last_data.split()
+        elif desc_info == "months":
+            parts = last_data.split(" ")
+            last_desc_info = " ".join(parts[:3])
+        print(last_desc_info)
+        # last_desc_info = "Январь - Март"
         data_for_excel = []
         for name in names:
             index_data = []
@@ -168,22 +203,22 @@ class FillTable(Automation):
                 data_not_exist = True
                 for data in sorted_data:
                     if data[2] == f"{year} год" and data[0] == name[1]:
-                        if data[1] < 100:
-                            index_data.append(float(data[1]))
-                        else:
-                            index_data.append(float(round(data[1]/1000, 1)))
+                        value = self.convert_number(data_type, data[1])
+                        index_data.append(value)
                         data_not_exist = False
                 if data_not_exist:
                     index_data.append("")
 
             data_not_exist = True
             for data in sorted_data:
-                if data[2] == f"1 квартал {end_year+1} г." and data[0] == name[1]:
-                    if data[1] < 100:
-                        index_data.append(float(data[1]))
-                    else:
-                        index_data.append(float(round(data[1]/1000, 1)))
+                print(f"{last_desc_info} {year} г. (кв.)")
+                if data[2] == f"{last_desc_info} квартал {end_year+1} г." and data[0] == name[1]:
+                    value = self.convert_number(data_type, data[1])
+                    index_data.append(value)
                     data_not_exist = False
+                if data[2] == f"{last_desc_info} {end_year+1} г. (кв.)" and data[0] == name[1]:
+                    value = self.convert_number(data_type, data[1])
+                    index_data.append(value)
             if data_not_exist:
                 index_data.append("")
             
@@ -192,15 +227,15 @@ class FillTable(Automation):
         #заголовок
         header1 = ["Показатели"]
         for year in range(start_year, end_year+2):
-            header1.append(year)
-        
-        header2 = []
-        for _ in range(len(header1)-1):
-            header2.append("")
-        header2.append("1 кв")
+            if year == end_year+1:
+                if desc_info == "quarter":
+                    header1.append(str(year) + f"\n{last_desc_info} кв")
+                else:
+                    header1.append(str(year) + f"\n{last_desc_info}")
+            else:
+                header1.append(year)
 
         sheet.append(header1)
-        sheet.append(header2)
         for data in data_for_excel:
             sheet.append(data)
                 
@@ -332,10 +367,12 @@ class FillTable(Automation):
         #                         "отчетный период к соответствующему периоду прошлого года", "ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН И ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ1,")
         # self.create_month_table(cons_index_names, months, cons_index_sql, "consumer_price_index2.xlsx",
         #                 "отчетный период к предыдущему периоду", "ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН И ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ2,")
-        self.create_year_table(labor_stats_names, labor_stats_sql, "labor_market_statistics.xlsx", "СТАТИСТИКА ТРУДА")
+        self.create_year_table(labor_stats_names, labor_stats_sql, "labor_market_statistics.xlsx", 
+                               "thousand_tenge_exp", "quarter", "СТАТИСТИКА ТРУДА")
+        self.create_year_table(region_names, gdp_by_one_sql, "per_capita_regional_gross_domestic_product.xlsx", 
+                        "thousand_tenge", "months", "ВАЛОВЫЙ РЕГИОНАЛЬНЫЙ ПРОДУКТ НА ДУШУ НАСЕЛЕНИЯ")
 
-
-fillTable = FillTable("testtest", "postgres", "123456")
+fillTable = FillTable("taldau", "postgres", "123456")
 
 fillTable.create_all_tables()
 fillTable.db_disconnect()

@@ -1,4 +1,5 @@
 {% extends "macroeconomics/layout.html" %}
+{% load static %}
 
 {% block body %}
     <div class="container">
@@ -27,8 +28,14 @@
             {% else %}
             <div class="col-md-8">
                 <div class="about-info">
-                    Выберите раздел, чтобы получить данные о показателях.
+                    Выберите раздел, чтобы получить данные о показателях или скачайте готовый документ.
                 </div>
+                <div class="about-info">
+                    <a href="{% static 'macroeconomics/docs/bulletin.docx' %}">
+                        <button class="btn btn-lg" style="background-color: #a996dd;">Скачать файл</button>
+                    </a>
+                </div>
+
             </div>
             {% endif %}
         </div>

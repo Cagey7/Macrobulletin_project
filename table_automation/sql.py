@@ -549,3 +549,27 @@ WHERE
 ORDER BY 
     created_at;
 '''
+
+gdp_by_one_sql = '''
+SELECT
+	region,
+	value,
+	description,
+	created_at
+FROM 
+	grp_per_capita_year
+WHERE
+	region IN %s
+	AND created_at BETWEEN %s AND %s
+UNION
+SELECT
+	region,
+	value,
+	description,
+	created_at
+FROM
+	grp_per_capita_quarter_accum
+WHERE
+	region IN %s
+	AND created_at BETWEEN %s AND %s
+'''

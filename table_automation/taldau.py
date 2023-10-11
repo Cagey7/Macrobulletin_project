@@ -154,9 +154,9 @@ class Automation:
         # self.insert_data("avmon_nom_wages", "Среднемесячная номинальная заработная плата", "year",
         #                 "https://taldau.stat.gov.kz/ru/Api/GetIndexData/702972?period=7&dics=68,859,776,2813,576",
         #                 "region", "activity_type", "area_type", "enterprise_dimension", "gender", "created_at", "value", "description")
-        self.insert_data("avmon_nom_wages", "Среднемесячная номинальная заработная плата", "quarter",
-                        "https://taldau.stat.gov.kz/ru/Api/GetIndexData/702972?period=5&dics=68,859,681",
-                        "region", "activity_type", "economic_sectors", "created_at", "value", "description")
+        # self.insert_data("avmon_nom_wages", "Среднемесячная номинальная заработная плата", "quarter",
+        #                 "https://taldau.stat.gov.kz/ru/Api/GetIndexData/702972?period=5&dics=68,859,681",
+        #                 "region", "activity_type", "economic_sectors", "created_at", "value", "description")
         # self.insert_data("nom_wages_index", "Индекс номинальной заработной платы", "year",
         #                 "https://taldau.stat.gov.kz/ru/Api/GetIndexData/702974?period=7&dics=68,859,2813,576,848",
         #                 "region", "activity_type", "enterprise_dimension", "gender", "periods_correlation", "created_at", "value", "description")
@@ -294,6 +294,24 @@ class Automation:
         # self.insert_data("pop_income_below_subsistence", "Доля населения, имеющего доходы ниже величины прожиточного минимума", "year", 
         #                  "https://taldau.stat.gov.kz/ru/Api/GetIndexData/704498?period=7&dics=67,749", 
         #                  "region", "area_type", "created_at", "value", "description")
+        self.insert_data("grp_per_capita", "Валовый региональный продукт на душу населения", "quarter_accum", 
+                         "https://taldau.stat.gov.kz/ru/Api/GetIndexData/2709380?period=9&dics=67", 
+                         "region", "created_at", "value", "description")
+        self.insert_data("grp", "Валовый региональный продукт", "quarter_accum", 
+                         "https://taldau.stat.gov.kz/ru/Api/GetIndexData/2709379?period=9&dics=67", 
+                         "region", "created_at", "value", "description")
+        self.insert_data("grp_volume_index", "ИФО для валового внутреннего продукта", "quarter_accum", 
+                         "https://taldau.stat.gov.kz/ru/Api/GetIndexData/2979005?period=9&dics=67", 
+                         "region", "created_at", "value", "description")
+        self.insert_data("gop_agriculture_forest_fish", "Валовой выпуск продукции (услуг) сельского, лесного и рыбного хозяйства", "month_accum", 
+                         "https://taldau.stat.gov.kz/ru/Api/GetIndexData/701188?period=8&dics=67,488,773", 
+                         "region", "household_category", "price_measurement", "created_at", "value", "description")
+        self.insert_data("industrial_production_volumes", "Объемы промышленного производства", "month_accum", 
+                         "https://taldau.stat.gov.kz/ru/Api/GetIndexData/701592?period=8&dics=68,776,4303,524", 
+                         'region', "area_type", "activity_type", "periods_correlation", "created_at", "value", "description")
+        self.insert_data("population_of_kazakhstan", "Численность населения Республики Казахстан", "month", 
+                         "https://taldau.stat.gov.kz/ru/Api/GetIndexData/703831?period=4&dics=67,749", 
+                         "region", "area_type", "created_at", "value", "description")
 
         
     def collect_data_quarters(self):
