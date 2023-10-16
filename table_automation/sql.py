@@ -573,3 +573,58 @@ WHERE
 	region IN %s
 	AND created_at BETWEEN %s AND %s
 '''
+
+gdp_agricultural_sql = '''
+SELECT
+	region,
+	value,
+	description,
+	created_at
+FROM 
+	gop_agriculture_forest_fish_year
+WHERE
+	region IN %s
+	AND price_measurement = 'В действующих ценах'
+	AND created_at BETWEEN %s AND %s
+UNION
+SELECT
+	region,
+	value,
+	description,
+	created_at
+FROM
+	gop_agriculture_forest_fish_month_accum
+WHERE
+	region IN %s
+	AND price_measurement = 'В действующих ценах'
+	AND household_category = 'Все категории хозяйств'
+	AND created_at BETWEEN %s AND %s;
+'''
+
+ind_production_volume_sql = '''
+SELECT
+	region,
+	value,
+	description,
+	created_at
+FROM 
+	industrial_production_volumes_year
+WHERE
+	region IN %s
+	AND activity_type = 'Промышленность'
+	AND created_at BETWEEN %s AND %s
+UNION
+SELECT
+	region,
+	value,
+	description,
+	created_at
+FROM
+	industrial_production_volumes_month_accum
+WHERE
+	region IN %s
+	AND area_type = 'Всего'
+	AND activity_type = 'Промышленность'
+	AND periods_correlation = 'За отчетный период'
+	AND created_at BETWEEN %s AND %s;
+'''
