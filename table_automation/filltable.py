@@ -4,7 +4,7 @@ from dateutil.relativedelta import relativedelta
 import os
 import calendar
 from openpyxl import Workbook
-from taldau import Automation
+from automation import Automation
 from sql import *
 from table_info import *
 
@@ -104,6 +104,7 @@ class FillTable(Automation):
                 last_year_data.append(data)
 
         quarter = self.period_counter(last_year_data, "quarter")
+        # quarter = 1
 
         data_for_excel = []
         for name in names:
@@ -278,12 +279,23 @@ class FillTable(Automation):
         )
         sorted_data = self.cur.fetchall()
 
-        last_year_data = []
+        date_list = []
         for data in sorted_data:
-            if len(data[2].split()) > 2:
-                last_year_data.append(data)
+            if data[3].year == end_year+1:
+                date_list.append(data[3])
+        max_date = max(date_list)
         
-        last_desc_info = self.period_counter(last_year_data, "month_accum")
+        for data in sorted_data:
+            if data[3] == max_date:
+                accum_quarter = data[2]
+                break
+
+        try:
+            int(accum_quarter[:1])
+            accum_quarter = "no accum quarter"
+        except:
+            pass
+        
 
         data_for_excel = []
         for name in names:
@@ -301,14 +313,10 @@ class FillTable(Automation):
                 if data_not_exist:
                     index_data.append("")
 
-            if last_desc_info != 0:
+            if accum_quarter != "no accum quarter":
                 data_not_exist = True
                 for data in sorted_data:
-                    if data[2] == f"{last_desc_info} {end_year+1} г. (кв.)" and data[0] == name[1]:
-                        value = self.convert_number(data_type, data[1])
-                        index_data.append(value)
-                        data_not_exist = False
-                    if data[2] == f"{last_desc_info} {end_year+1} г. (мес.)" and data[0] == name[1]:
+                    if data[2] == accum_quarter and data[0] == name[1]:
                         value = self.convert_number(data_type, data[1])
                         index_data.append(value)
                         data_not_exist = False
@@ -317,20 +325,28 @@ class FillTable(Automation):
             
             data_for_excel.append(index_data)
 
-        #заголовок
-        if last_desc_info == 0:
-            end_year_header = end_year+1
-        else:
-            end_year_header = end_year+2
         if data_type == "thousand_tenge":
             header1 = ["Показатели \n(тыс. тенге)"]
         elif data_type == "million_tenge":
             header1 = ["Показатели \n(млн тенге)"]
-        for year in range(start_year, end_year_header):
-            if year == end_year+1:
-                header1.append(str(year) + f"\n{last_desc_info}")
-            else:
+
+        #заголовок
+        if accum_quarter == "no accum quarter":
+            end_year_header = end_year+1
+            for year in range(start_year, end_year_header):
                 header1.append(year)
+        else:
+
+            end_year_header = end_year+2
+            words = accum_quarter.split()
+            if len(words) >= 3:
+                acc_quarter_months = ' '.join(words[:3])
+            for year in range(start_year, end_year_header):
+                if year == end_year+1:
+                    header1.append(str(year) + f"\n {acc_quarter_months}")
+                else:
+                    header1.append(year)
+
 
         sheet.append(header1)
         for data in data_for_excel:
@@ -434,45 +450,3 @@ class FillTable(Automation):
         print(f"Таблица {index_name} создана")
 
 
-    def create_all_tables(self):
-        self.create_quarter_table(industry_types_names, avsalary_byactivity_sql, 
-                                        "average_salary_by_economic_activity_in_thousand_tenge.xlsx", "tenge", 
-                                        "СРЕДНЕМЕСЯЧНАЯ ЗАРАБОТНАЯ ПЛАТА ПО ВИДАМ ЭКОНОМИЧЕСКОЙ ДЕЯТЕЛЬНОСТИ (В ТЫС. ТЕНГЕ)")
-        self.create_quarter_table(industry_types_names, nominal_wage_index_sql, "nominal_wage_index.xlsx", "percent", 
-                                        "ИНДЕКС НОМИНАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ")
-        self.create_quarter_table(industry_types_names, real_wage_index_sql, "real_wage_index.xlsx", "percent", "ИНДЕКС РЕАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ")
-        self.create_quarter_table(region_names, avnomsalary_by_region_sql, "average_nominal_salary_by_region_in_thousand_tenge.xlsx", 
-                                        "thousand_tenge", "СРЕДНЕМЕСЯЧНАЯ НОМИНАЛЬНАЯ ЗАРАБОТНАЯ ПЛАТА (В ТЫС. ТЕНГЕ) В РАЗРЕЗЕ РЕГИОНОВ")
-        self.create_quarter_table(region_names, nomwage_index_by_region_sql, "nominal_wage_index_by_region.xlsx", 
-                                        "percent", "ИНДЕКС НОМИНАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ В РАЗРЕЗЕ РЕГИОНОВ")
-        self.create_quarter_table(region_names, realwage_index_by_region_sql, "real_wage_index_by_region.xlsx", 
-                                        "percent", "ИНДЕКС РЕАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ В РАЗРЕЗЕ РЕГИОНОВ")
-        self.create_quarter_table(region_names, avcapita_nominal_income_by_region_sql, 
-                                "average_per_capita_nominal_income_by_region_in_tenge.xlsx", "thousand_tenge", 
-                                "СРЕДНЕДУШЕВЫЕ НОМИНАЛЬНЫЕ ДЕНЕЖНЫЕ ДОХОДЫ НАСЕЛЕНИЯ (В ТЕНГЕ) В РАЗРЕЗЕ РЕГИОНОВ")
-        self.create_quarter_table(region_names, nominal_income_index_by_region_sql, 
-                                "nominal_income_index_by_region.xlsx", "percent", 
-                                "ИНДЕКС НОМИНАЛЬНЫХ ДЕНЕЖНЫХ ДОХОДОВ В РАЗРЕЗЕ РЕГИОНОВ")
-        self.create_quarter_table(region_names, real_income_index_by_region_sql, 
-                                "real_income_index_by_region.xlsx", "percent", 
-                                "ИНДЕКС РЕАЛЬНЫХ ДЕНЕЖНЫХ ДОХОДОВ В РАЗРЕЗЕ РЕГИОНОВ")
-        self.create_quarter_table(region_names, population_share_below_poverty_line_sql, 
-                                "population_share_below_poverty_line.xlsx", "percent", 
-                                "ДОЛЯ НАСЕЛЕНИЯ, ИМЕЮЩЕГО ДОХОДЫ НИЖЕ ВЕЛИЧИНЫ ПРОЖИТОЧНОГО МИНИМУМА")
-
-        self.create_month_table(cons_index_names, months, cons_index_sql, "consumer_price_index1.xlsx",
-                                "отчетный период к соответствующему периоду прошлого года", "ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН И ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ1,")
-        self.create_month_table(cons_index_names, months, cons_index_sql, "consumer_price_index2.xlsx",
-                        "отчетный период к предыдущему периоду", "ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН И ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ2,")
-        self.create_year_table(region_names, gdp_by_one_sql, "per_capita_regional_gross_domestic_product.xlsx",
-                        "thousand_tenge", "ВАЛОВЫЙ РЕГИОНАЛЬНЫЙ ПРОДУКТ НА ДУШУ НАСЕЛЕНИЯ")
-        self.create_year_table(region_names, gdp_agricultural_sql, "output_of_agricultural_forestry_and_fishery_production.xlsx",
-                        "million_tenge", "ВАЛОВЫЙ ВЫПУСК ПРОДУКЦИИ (УСЛУГ) СЕЛЬСКОГО, ЛЕСНОГО И РЫБНОГО ХОЗЯЙСТВА")
-        self.create_year_table(region_names, ind_production_volume_sql, "industrial_production_volume_at_current_prices.xlsx",
-                        "million_tenge", "ОБЪЕМЫ ПРОМЫШЛЕННОГО ПРОИЗВОДСТВА В ДЕЙСТВУЮЩИХ ЦЕНАХ")
-        self.create_labor_stats(labor_stats_names, labor_stats_sql, "labor_market_statistics.xlsx", "СТАТИСТИКА ТРУДА")
-
-fillTable = FillTable("taldau", "postgres", "123456")
-
-fillTable.create_all_tables()
-fillTable.db_disconnect()

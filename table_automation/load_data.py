@@ -1,4 +1,4 @@
-from taldau import Automation
+from automation import Automation
 
 def main():
     automation = Automation("eri_taldau", "postgres", "123456", create_logs=True)
