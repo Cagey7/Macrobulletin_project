@@ -58,6 +58,7 @@ def main():
     filltable.create_year_table(region_names, ind_production_volume_sql, "industrial_production_volume_at_current_prices.xlsx",
                                     "million_tenge", "ОБЪЕМЫ ПРОМЫШЛЕННОГО ПРОИЗВОДСТВА В ДЕЙСТВУЮЩИХ ЦЕНАХ")
 
+    filltable.db_disconnect()
 
 if __name__ == '__main__':
     main()
