@@ -133,8 +133,8 @@ def main():
                         "https://taldau.stat.gov.kz/ru/Api/GetIndexData/701592?period=7&dics=68,4303", 
                         'region', "activity_type", "created_at", "value", "description")
     automation.insert_data("population_of_kazakhstan", "Численность населения Республики Казахстан", "year", 
-                        "https://taldau.stat.gov.kz/ru/Api/GetIndexData/703831?period=7&dics=67,76", 
-                        "region", "nationality", "created_at", "value", "description")
+                        "https://taldau.stat.gov.kz/ru/Api/GetIndexData/703831?period=7&dics=67,749,576,3198", 
+                        "region", "area_type", "gender", "age_groups", "created_at", "value", "description")
     automation.insert_data("population_year_beginning", "Численность населения на начало года", "year", 
                         "https://taldau.stat.gov.kz/ru/Api/GetIndexData/703831?period=7&dics=67,749,576,1433", 
                         'region', "area_type", "gender", "population_group", "created_at", "value", "description")

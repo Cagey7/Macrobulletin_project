@@ -48,13 +48,13 @@ def main():
     filltable.create_quarter_table(region_names, population_share_below_poverty_line_sql, 
                                     "population_share_below_poverty_line.xlsx", "percent", 
                                     "ДОЛЯ НАСЕЛЕНИЯ, ИМЕЮЩЕГО ДОХОДЫ НИЖЕ ВЕЛИЧИНЫ ПРОЖИТОЧНОГО МИНИМУМА")
-    #4.2
+    # 4.2
     filltable.create_year_table(region_names, gdp_by_one_sql, "per_capita_regional_gross_domestic_product.xlsx",
                                     "thousand_tenge", "ВАЛОВЫЙ РЕГИОНАЛЬНЫЙ ПРОДУКТ НА ДУШУ НАСЕЛЕНИЯ")
-    #4.3
+    # 4.3
     filltable.create_year_table(region_names, gdp_agricultural_sql, "output_of_agricultural_forestry_and_fishery_production.xlsx",
                                     "million_tenge", "ВАЛОВЫЙ ВЫПУСК ПРОДУКЦИИ (УСЛУГ) СЕЛЬСКОГО, ЛЕСНОГО И РЫБНОГО ХОЗЯЙСТВА")
-    #4.4
+    # 4.4
     filltable.create_year_table(region_names, ind_production_volume_sql, "industrial_production_volume_at_current_prices.xlsx",
                                     "million_tenge", "ОБЪЕМЫ ПРОМЫШЛЕННОГО ПРОИЗВОДСТВА В ДЕЙСТВУЮЩИХ ЦЕНАХ")
 
