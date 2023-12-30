@@ -68,7 +68,7 @@ class Automation:
             if self.create_logs:
                 self.write_logs(f"Ошибка запроса: {response.status_code}", "ERROR")
             print(f"Ошибка запроса: {response.status_code}")
-            sleep(3)
+            sleep(5)
             return self.get_response(url)
     
 
@@ -85,6 +85,7 @@ class Automation:
         except Exception as e:
             if self.create_logs:
                 self.write_logs(f"Возникла ошибка при получении json: {e}", "ERROR")
+                self.write_logs(f"{index_name} требует повторной загрузки", "WARRING")
             print("Произошла ошибка:", str(e))
             print("Возникла ошибка при получении json")
 

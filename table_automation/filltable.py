@@ -286,7 +286,6 @@ class FillTable(Automation):
         if max_date.year != end_year+1:
             sorted_data, end_year, start_year, max_date = self.get_data_create_year_table(sql, names, 5)
 
-
         for data in sorted_data:
             if data[3] == max_date:
                 accum_quarter = data[2]
