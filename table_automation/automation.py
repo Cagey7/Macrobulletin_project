@@ -23,8 +23,6 @@ class Automation:
             current_datetime = datetime.now()
             formatted_date = current_datetime.strftime('%Y-%m-%d_%H-%M-%S')
             self.log_path = os.path.join(parent_directory, "logs", f"logs-{formatted_date}.log")
-        
-        self.db_connection()
 
     def write_logs(self, msg, error_type):
         with open(self.log_path, "a") as file:
@@ -35,6 +33,8 @@ class Automation:
                 file.write(f"{formatted_datetime}  {error_type}     :{msg}\n")
             elif error_type == "ERROR":
                 file.write(f"{formatted_datetime}  {error_type}    :{msg}\n")
+            elif error_type == "WARRING":
+                file.write(f"{formatted_datetime}  {error_type}  :{msg}\n")
             
     def db_connection(self):
         if self.conn is None:
@@ -85,7 +85,7 @@ class Automation:
         except Exception as e:
             if self.create_logs:
                 self.write_logs(f"Возникла ошибка при получении json: {e}", "ERROR")
-                self.write_logs(f"{index_name} требует повторной загрузки", "WARRING")
+                self.write_logs(f"{index_name} {index_period} требует повторной загрузки", "WARRING")
             print("Произошла ошибка:", str(e))
             print("Возникла ошибка при получении json")
 
