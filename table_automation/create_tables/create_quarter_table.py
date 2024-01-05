@@ -76,7 +76,7 @@ class CreateQuarterTable(FillTable):
                 if year == last_year: end_quarter = last_quarter + 1
                 for quarter in range(1, end_quarter):
                     if name_i == 0:
-                        description[data_type].append(f"{quarter} кв")
+                        description[data_type].append(f"{self.romam_to_arabic(quarter)} кв")
                     data_not_exist = True
                     for data in sorted_data:
                         if data[2] == f"{quarter} квартал {year} г." and data[0] == name[1]:

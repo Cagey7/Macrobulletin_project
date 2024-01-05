@@ -11,8 +11,8 @@ class CreateMonthTable(FillTable):
 
     def get_data_create_month_table(self, sql, names, reporting_period, minus_num):
         current_date = datetime.now()
-        end_month = current_date.month
-        end_year = current_date.year
+        end_month = 12
+        end_year = current_date.year - minus_num + 2
 
         current_date = datetime.now()
         start_month = 12
@@ -33,7 +33,11 @@ class CreateMonthTable(FillTable):
             )
         )
         sorted_data = self.cur.fetchall()
-
+        print(sorted_data)
+        print(start_year)
+        print(start_month)
+        print(end_year)
+        print(end_month)
 
         return sorted_data, start_year, start_month, end_year, end_month
 

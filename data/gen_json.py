@@ -113,7 +113,7 @@ for i, table in enumerate(table_info):
         "model": "macroeconomics.table",
 		"pk": i+1,
         "fields": {
-            "path": f"{table[1]}",
+            "excel": f"excels/{table[1]}.xlsx",
 			"macro_economic_index": i_index
 		}
 	}

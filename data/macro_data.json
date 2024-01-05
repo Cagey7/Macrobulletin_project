@@ -233,7 +233,7 @@
     "model": "macroeconomics.table",
     "pk": 1,
     "fields": {
-      "path": "1-2ppi",
+      "excel": "excels/1-2ppi.xlsx",
       "macro_economic_index": 1
     }
   },
@@ -241,7 +241,7 @@
     "model": "macroeconomics.table",
     "pk": 2,
     "fields": {
-      "path": "1-3labor_productivity",
+      "excel": "excels/1-3labor_productivity.xlsx",
       "macro_economic_index": 2
     }
   },
@@ -249,7 +249,7 @@
     "model": "macroeconomics.table",
     "pk": 3,
     "fields": {
-      "path": "1-4capital_investment",
+      "excel": "excels/1-4capital_investment.xlsx",
       "macro_economic_index": 3
     }
   },
@@ -257,7 +257,7 @@
     "model": "macroeconomics.table",
     "pk": 4,
     "fields": {
-      "path": "1-6consumer_price_index1",
+      "excel": "excels/1-6consumer_price_index1.xlsx",
       "macro_economic_index": 4
     }
   },
@@ -265,7 +265,7 @@
     "model": "macroeconomics.table",
     "pk": 5,
     "fields": {
-      "path": "1-6consumer_price_index2",
+      "excel": "excels/1-6consumer_price_index2.xlsx",
       "macro_economic_index": 4
     }
   },
@@ -273,7 +273,7 @@
     "model": "macroeconomics.table",
     "pk": 6,
     "fields": {
-      "path": "2-2average_salary_by_economic_activity_in_thousand_tenge",
+      "excel": "excels/2-2average_salary_by_economic_activity_in_thousand_tenge.xlsx",
       "macro_economic_index": 5
     }
   },
@@ -281,7 +281,7 @@
     "model": "macroeconomics.table",
     "pk": 7,
     "fields": {
-      "path": "2-3nominal_wage_index",
+      "excel": "excels/2-3nominal_wage_index.xlsx",
       "macro_economic_index": 6
     }
   },
@@ -289,7 +289,7 @@
     "model": "macroeconomics.table",
     "pk": 8,
     "fields": {
-      "path": "2-4real_wage_index",
+      "excel": "excels/2-4real_wage_index.xlsx",
       "macro_economic_index": 7
     }
   },
@@ -297,7 +297,7 @@
     "model": "macroeconomics.table",
     "pk": 9,
     "fields": {
-      "path": "2-5average_nominal_salary_by_region_in_thousand_tenge",
+      "excel": "excels/2-5average_nominal_salary_by_region_in_thousand_tenge.xlsx",
       "macro_economic_index": 8
     }
   },
@@ -305,7 +305,7 @@
     "model": "macroeconomics.table",
     "pk": 10,
     "fields": {
-      "path": "2-6nominal_wage_index_by_region",
+      "excel": "excels/2-6nominal_wage_index_by_region.xlsx",
       "macro_economic_index": 9
     }
   },
@@ -313,7 +313,7 @@
     "model": "macroeconomics.table",
     "pk": 11,
     "fields": {
-      "path": "2-7real_wage_index_by_region",
+      "excel": "excels/2-7real_wage_index_by_region.xlsx",
       "macro_economic_index": 10
     }
   },
@@ -321,7 +321,7 @@
     "model": "macroeconomics.table",
     "pk": 12,
     "fields": {
-      "path": "2-8average_per_capita_nominal_income_by_region_in_tenge",
+      "excel": "excels/2-8average_per_capita_nominal_income_by_region_in_tenge.xlsx",
       "macro_economic_index": 11
     }
   },
@@ -329,7 +329,7 @@
     "model": "macroeconomics.table",
     "pk": 13,
     "fields": {
-      "path": "2-9nominal_income_index_by_region",
+      "excel": "excels/2-9nominal_income_index_by_region.xlsx",
       "macro_economic_index": 12
     }
   },
@@ -337,7 +337,7 @@
     "model": "macroeconomics.table",
     "pk": 14,
     "fields": {
-      "path": "2-10real_income_index_by_region",
+      "excel": "excels/2-10real_income_index_by_region.xlsx",
       "macro_economic_index": 13
     }
   },
@@ -345,7 +345,7 @@
     "model": "macroeconomics.table",
     "pk": 15,
     "fields": {
-      "path": "2-11population_share_below_poverty_line",
+      "excel": "excels/2-11population_share_below_poverty_line.xlsx",
       "macro_economic_index": 14
     }
   },
@@ -353,7 +353,7 @@
     "model": "macroeconomics.table",
     "pk": 16,
     "fields": {
-      "path": "3-2sectoral_specialization_msp_2021_percentage",
+      "excel": "excels/3-2sectoral_specialization_msp_2021_percentage.xlsx",
       "macro_economic_index": 15
     }
   },
@@ -361,7 +361,7 @@
     "model": "macroeconomics.table",
     "pk": 17,
     "fields": {
-      "path": "4-1regional_gross_domestic_product_and_physical_volume_index",
+      "excel": "excels/4-1regional_gross_domestic_product_and_physical_volume_index.xlsx",
       "macro_economic_index": 16
     }
   },
@@ -369,7 +369,7 @@
     "model": "macroeconomics.table",
     "pk": 18,
     "fields": {
-      "path": "4-2per_capita_regional_gross_domestic_product",
+      "excel": "excels/4-2per_capita_regional_gross_domestic_product.xlsx",
       "macro_economic_index": 17
     }
   },
@@ -377,7 +377,7 @@
     "model": "macroeconomics.table",
     "pk": 19,
     "fields": {
-      "path": "4-3output_of_agricultural_forestry_and_fishery_production",
+      "excel": "excels/4-3output_of_agricultural_forestry_and_fishery_production.xlsx",
       "macro_economic_index": 18
     }
   },
@@ -385,7 +385,7 @@
     "model": "macroeconomics.table",
     "pk": 20,
     "fields": {
-      "path": "4-4industrial_production_volume_at_current_prices",
+      "excel": "excels/4-4industrial_production_volume_at_current_prices.xlsx",
       "macro_economic_index": 19
     }
   },
@@ -393,7 +393,7 @@
     "model": "macroeconomics.table",
     "pk": 21,
     "fields": {
-      "path": "4-5population_at_the_beginning_of_the_year_kz",
+      "excel": "excels/4-5population_at_the_beginning_of_the_year_kz.xlsx",
       "macro_economic_index": 20
     }
   },
@@ -401,7 +401,7 @@
     "model": "macroeconomics.table",
     "pk": 22,
     "fields": {
-      "path": "4-6population_at_the_beginning_of_the_year1",
+      "excel": "excels/4-6population_at_the_beginning_of_the_year1.xlsx",
       "macro_economic_index": 21
     }
   },
@@ -409,7 +409,7 @@
     "model": "macroeconomics.table",
     "pk": 23,
     "fields": {
-      "path": "4-6population_at_the_beginning_of_the_year2",
+      "excel": "excels/4-6population_at_the_beginning_of_the_year2.xlsx",
       "macro_economic_index": 21
     }
   },
@@ -417,7 +417,7 @@
     "model": "macroeconomics.table",
     "pk": 24,
     "fields": {
-      "path": "4-6population_at_the_beginning_of_the_year3",
+      "excel": "excels/4-6population_at_the_beginning_of_the_year3.xlsx",
       "macro_economic_index": 21
     }
   },
@@ -425,7 +425,7 @@
     "model": "macroeconomics.table",
     "pk": 25,
     "fields": {
-      "path": "4-7urbanization_as_percentage_of_total_population_estimate",
+      "excel": "excels/4-7urbanization_as_percentage_of_total_population_estimate.xlsx",
       "macro_economic_index": 22
     }
   }

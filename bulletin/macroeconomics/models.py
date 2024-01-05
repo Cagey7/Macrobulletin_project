@@ -35,8 +35,9 @@ class EconomicIndex(models.Model):
 
 
 class Table(models.Model):
-    path = models.CharField(max_length=255, null=True)
+    excel = models.FileField(upload_to="excels", default=None, blank=True, null=True)
     macro_economic_index = models.ForeignKey("EconomicIndex", on_delete=models.PROTECT)
 
     def __str__(self):
-        return f"Название экономического показателя: {self.macro_economic_index.name}, название файла: {self.path}"
+        return f"Название экономического показателя: {self.macro_economic_index.name}, название файла: {self.excel}"
+

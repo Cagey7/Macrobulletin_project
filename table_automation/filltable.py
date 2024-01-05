@@ -9,7 +9,17 @@ class FillTable(Automation):
         super().__init__(*args, **kwargs)
         current_directory = os.path.abspath(os.getcwd())
         parent_directory = os.path.dirname(current_directory)
-        self.excel_path = os.path.join(parent_directory, "bulletin", "macroeconomics", "static", "macroeconomics", "tables")
+        self.excel_path = os.path.join(parent_directory, "bulletin", "media", "excels")
+
+    def romam_to_arabic(self, num):
+        if num == 1:
+            return "I"
+        elif num == 2:
+            return "II"
+        elif num == 3:
+            return "III"
+        elif num == 4:
+            return "IV"
 
     def convert_number(self, data_type, num):
         if data_type == "tenge" or data_type == "thousand_tenge":

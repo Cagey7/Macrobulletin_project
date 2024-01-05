@@ -5,13 +5,10 @@
 <div class="index-header-info">{{ economic_index.name }}</div>
 <a href="{{ request.META.HTTP_REFERER }}">Назад</a>
     {% for table in tables %}
-        <div class="table-container" id="{{table.path}}"></div>
+        <div class="table-container" id="{{ table.pk }}"></div>
         <br>
         <script>
-            var economicIndexPath = "{{ table.path }}";
-                var staticPath = "{% static 'macroeconomics/tables/' %}" + economicIndexPath + ".xlsx?v=" + new Date().getTime();
-                console.log(staticPath);
-                
+            var staticPath = "{{ table.excel.url }}?v=" + new Date().getTime() ;
             // Обработчик события при выборе файла
             fetch(staticPath)
             .then(response => response.blob())
@@ -30,7 +27,7 @@
                     var htmlTable = XLSX.utils.sheet_to_html(worksheet);
 
                     // Display the HTML table
-                    document.getElementById("{{table.path}}").innerHTML = htmlTable;
+                    document.getElementById("{{ table.pk }}").innerHTML = htmlTable;
                 };
 
                 reader.readAsArrayBuffer(blob);
@@ -41,7 +38,7 @@
 
         </script>
 
-        <a href="{% static 'macroeconomics/tables/' %}{{ table.path }}.xlsx">Скачать таблицу</a>
+        <a href="{{ table.excel.url }}">Скачать таблицу</a>
         <br><br>
     {% endfor %}
 
