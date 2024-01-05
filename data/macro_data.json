@@ -1,0 +1,432 @@
+[
+  {
+    "model": "macroeconomics.topic",
+    "pk": 1,
+    "fields": {
+      "name": "1. МАКРОЭКОНОМИКА",
+      "slug": "macroeconomics"
+    }
+  },
+  {
+    "model": "macroeconomics.topic",
+    "pk": 2,
+    "fields": {
+      "name": "2. РЫНОК ТРУДА",
+      "slug": "labor-market"
+    }
+  },
+  {
+    "model": "macroeconomics.topic",
+    "pk": 3,
+    "fields": {
+      "name": "3. ПРЕДПРИНИМАТЕЛЬСТВО",
+      "slug": "entrepreneurship"
+    }
+  },
+  {
+    "model": "macroeconomics.topic",
+    "pk": 4,
+    "fields": {
+      "name": "4. РЕГИОНЫ",
+      "slug": "regions"
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 1,
+    "fields": {
+      "name": "1.2. ИНДЕКС ФИЗИЧЕСКОГО ОБЪЕМА (ИФО)",
+      "slug": "ppi",
+      "macro_topic": 1
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 2,
+    "fields": {
+      "name": "1.3. ПРОИЗВОДИТЕЛЬНОСТЬ ТРУДА",
+      "slug": "labor-productivity",
+      "macro_topic": 1
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 3,
+    "fields": {
+      "name": "1.4. ИНВЕСТИЦИИ В ОСНОВНОЙ КАПИТАЛ",
+      "slug": "capital-investment",
+      "macro_topic": 1
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 4,
+    "fields": {
+      "name": "1.6. ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН И ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ",
+      "slug": "consumer-price-index",
+      "macro_topic": 1
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 5,
+    "fields": {
+      "name": "2.2. СРЕДНЕМЕСЯЧНАЯ ЗАРАБОТНАЯ ПЛАТА ПО ВИДАМ ЭКОНОМИЧЕСКОЙ ДЕЯТЕЛЬНОСТИ (В ТЫС. ТЕНГЕ)",
+      "slug": "avsalary-economic-activity",
+      "macro_topic": 2
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 6,
+    "fields": {
+      "name": "2.3. ИНДЕКС НОМИНАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ",
+      "slug": "nominal-wage-index",
+      "macro_topic": 2
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 7,
+    "fields": {
+      "name": "2.4. ИНДЕКС РЕАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ",
+      "slug": "real-wage-index",
+      "macro_topic": 2
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 8,
+    "fields": {
+      "name": "2.5. СРЕДНЕМЕСЯЧНАЯ НОМИНАЛЬНАЯ ЗАРАБОТНАЯ ПЛАТА (В ТЫС. ТЕНГЕ) В РАЗРЕЗЕ РЕГИОНОВ",
+      "slug": "avnominal-salary-region",
+      "macro_topic": 2
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 9,
+    "fields": {
+      "name": "2.6. ИНДЕКС НОМИНАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ В РАЗРЕЗЕ РЕГИОНОВ",
+      "slug": "nomwage-index-region",
+      "macro_topic": 2
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 10,
+    "fields": {
+      "name": "2.7. ИНДЕКС РЕАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ В РАЗРЕЗЕ РЕГИОНОВ",
+      "slug": "realwage-index-region",
+      "macro_topic": 2
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 11,
+    "fields": {
+      "name": "2.8. СРЕДНЕДУШЕВЫЕ НОМИНАЛЬНЫЕ ДЕНЕЖНЫЕ ДОХОДЫ НАСЕЛЕНИЯ (В ТЕНГЕ) В РАЗРЕЗЕ РЕГИОНОВ",
+      "slug": "avpercapita-nominal-income",
+      "macro_topic": 2
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 12,
+    "fields": {
+      "name": "2.9. ИНДЕКС НОМИНАЛЬНЫХ ДЕНЕЖНЫХ ДОХОДОВ В РАЗРЕЗЕ РЕГИОНОВ",
+      "slug": "nomincome-index-region",
+      "macro_topic": 2
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 13,
+    "fields": {
+      "name": "2.10. ИНДЕКС РЕАЛЬНЫХ ДЕНЕЖНЫХ ДОХОДОВ В РАЗРЕЗЕ РЕГИОНОВ",
+      "slug": "realincome-index-region",
+      "macro_topic": 2
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 14,
+    "fields": {
+      "name": "2.11. ДОЛЯ НАСЕЛЕНИЯ, ИМЕЮЩЕГО ДОХОДЫ НИЖЕ ВЕЛИЧИНЫ ПРОЖИТОЧНОГО МИНИМУМА",
+      "slug": "popshare-below-povline",
+      "macro_topic": 2
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 15,
+    "fields": {
+      "name": "3.2. ОТРАСЛЕВАЯ СПЕЦИАЛИЗАЦИЯ СУБЪЕКТОВ МСП В 2021 ГОДУ, В %",
+      "slug": "sectoral-specialization",
+      "macro_topic": 3
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 16,
+    "fields": {
+      "name": "4.1. ВАЛОВЫЙ РЕГИОНАЛЬНЫЙ ПРОДУКТ И ИНДЕКС ФИЗИЧЕСКОГО ОБЪЕМА",
+      "slug": "rgdp-pvi",
+      "macro_topic": 4
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 17,
+    "fields": {
+      "name": "4.2. ВАЛОВЫЙ РЕГИОНАЛЬНЫЙ ПРОДУКТ НА ДУШУ НАСЕЛЕНИЯ",
+      "slug": "pcrgdp",
+      "macro_topic": 4
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 18,
+    "fields": {
+      "name": "4.3. ВАЛОВЫЙ ВЫПУСК ПРОДУКЦИИ (УСЛУГ) СЕЛЬСКОГО, ЛЕСНОГО И РЫБНОГО ХОЗЯЙСТВА",
+      "slug": "agri-forestry-fishery",
+      "macro_topic": 4
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 19,
+    "fields": {
+      "name": "4.4. ОБЪЕМЫ ПРОМЫШЛЕННОГО ПРОИЗВОДСТВА В ДЕЙСТВУЮЩИХ ЦЕНАХ",
+      "slug": "industrial-production-current",
+      "macro_topic": 4
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 20,
+    "fields": {
+      "name": "4.5. ЧИСЛЕННОСТЬ НАСЕЛЕНИЯ РЕСПУБЛИКИ КАЗАХСТАН НА НАЧАЛО ГОДА",
+      "slug": "population-beginning-year-kz",
+      "macro_topic": 4
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 21,
+    "fields": {
+      "name": "4.6. ЧИСЛЕННОСТЬ НАСЕЛЕНИЯ НА НАЧАЛО ГОДА",
+      "slug": "population-beginning-year",
+      "macro_topic": 4
+    }
+  },
+  {
+    "model": "macroeconomics.economicindex",
+    "pk": 22,
+    "fields": {
+      "name": "4.7. УРБАНИЗАЦИЯ (ДОЛЯ ГОРОДСКОГО К ОБЩЕЙ ЧИСЛЕННОСТИ НАСЕЛЕНИЯ РАСЧЁТНО)",
+      "slug": "urbanization-percent",
+      "macro_topic": 4
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 1,
+    "fields": {
+      "path": "1-2ppi",
+      "macro_economic_index": 1
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 2,
+    "fields": {
+      "path": "1-3labor_productivity",
+      "macro_economic_index": 2
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 3,
+    "fields": {
+      "path": "1-4capital_investment",
+      "macro_economic_index": 3
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 4,
+    "fields": {
+      "path": "1-6consumer_price_index1",
+      "macro_economic_index": 4
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 5,
+    "fields": {
+      "path": "1-6consumer_price_index2",
+      "macro_economic_index": 4
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 6,
+    "fields": {
+      "path": "2-2average_salary_by_economic_activity_in_thousand_tenge",
+      "macro_economic_index": 5
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 7,
+    "fields": {
+      "path": "2-3nominal_wage_index",
+      "macro_economic_index": 6
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 8,
+    "fields": {
+      "path": "2-4real_wage_index",
+      "macro_economic_index": 7
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 9,
+    "fields": {
+      "path": "2-5average_nominal_salary_by_region_in_thousand_tenge",
+      "macro_economic_index": 8
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 10,
+    "fields": {
+      "path": "2-6nominal_wage_index_by_region",
+      "macro_economic_index": 9
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 11,
+    "fields": {
+      "path": "2-7real_wage_index_by_region",
+      "macro_economic_index": 10
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 12,
+    "fields": {
+      "path": "2-8average_per_capita_nominal_income_by_region_in_tenge",
+      "macro_economic_index": 11
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 13,
+    "fields": {
+      "path": "2-9nominal_income_index_by_region",
+      "macro_economic_index": 12
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 14,
+    "fields": {
+      "path": "2-10real_income_index_by_region",
+      "macro_economic_index": 13
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 15,
+    "fields": {
+      "path": "2-11population_share_below_poverty_line",
+      "macro_economic_index": 14
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 16,
+    "fields": {
+      "path": "3-2sectoral_specialization_msp_2021_percentage",
+      "macro_economic_index": 15
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 17,
+    "fields": {
+      "path": "4-1regional_gross_domestic_product_and_physical_volume_index",
+      "macro_economic_index": 16
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 18,
+    "fields": {
+      "path": "4-2per_capita_regional_gross_domestic_product",
+      "macro_economic_index": 17
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 19,
+    "fields": {
+      "path": "4-3output_of_agricultural_forestry_and_fishery_production",
+      "macro_economic_index": 18
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 20,
+    "fields": {
+      "path": "4-4industrial_production_volume_at_current_prices",
+      "macro_economic_index": 19
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 21,
+    "fields": {
+      "path": "4-5population_at_the_beginning_of_the_year_kz",
+      "macro_economic_index": 20
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 22,
+    "fields": {
+      "path": "4-6population_at_the_beginning_of_the_year1",
+      "macro_economic_index": 21
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 23,
+    "fields": {
+      "path": "4-6population_at_the_beginning_of_the_year2",
+      "macro_economic_index": 21
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 24,
+    "fields": {
+      "path": "4-6population_at_the_beginning_of_the_year3",
+      "macro_economic_index": 21
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 25,
+    "fields": {
+      "path": "4-7urbanization_as_percentage_of_total_population_estimate",
+      "macro_economic_index": 22
+    }
+  }
+]

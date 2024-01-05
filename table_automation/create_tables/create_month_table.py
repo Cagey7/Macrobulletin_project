@@ -13,14 +13,13 @@ class CreateMonthTable(FillTable):
         current_date = datetime.now()
         end_month = current_date.month
         end_year = current_date.year
-        
-        current_date = datetime.now() + timedelta(days=365)
+
+        current_date = datetime.now()
         start_month = 12
         start_year = current_date.year - minus_num
         
         start_last_day = calendar.monthrange(start_year, start_month)[1]
         end_last_day = calendar.monthrange(end_year, end_month)[1]
-
 
         self.cur.execute(
             sql, (
@@ -35,6 +34,7 @@ class CreateMonthTable(FillTable):
         )
         sorted_data = self.cur.fetchall()
 
+
         return sorted_data, start_year, start_month, end_year, end_month
 
     def create_month_table(self, names, months, sql, table_name, reporting_period, index_name):
@@ -45,7 +45,6 @@ class CreateMonthTable(FillTable):
 
 
         sorted_data, start_year, start_month, end_year, end_month = self.get_data_create_month_table(sql, names, reporting_period, 2)
-
         dates = [item[3] for item in sorted_data]
         latest_month = max(dates).month
         latest_year = max(dates).year
@@ -53,7 +52,6 @@ class CreateMonthTable(FillTable):
         if latest_month != start_year:
             sorted_data, start_year, start_month, end_year, end_month = self.get_data_create_month_table(sql, names, reporting_period, 3)
 
-        print(latest_year)
         if latest_month < end_month:
             end_month = latest_month
         if latest_year < end_year:
