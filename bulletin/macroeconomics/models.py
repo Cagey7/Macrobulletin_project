@@ -21,10 +21,9 @@ class Topic(models.Model):
     #     ordering = ["name"]
 
 
-class Economic_index(models.Model):
+class EconomicIndex(models.Model):
     name = models.CharField(max_length=255, unique=True)
     slug = models.CharField(max_length=127, unique=True, null=True)
-    not_disabled = models.BooleanField(default=True)
     macro_topic = models.ForeignKey("Topic", on_delete=models.PROTECT)
     
     def __str__(self):
@@ -37,7 +36,7 @@ class Economic_index(models.Model):
 
 class Table(models.Model):
     path = models.CharField(max_length=255, null=True)
-    macro_economic_index = models.ForeignKey("Economic_index", on_delete=models.PROTECT)
+    macro_economic_index = models.ForeignKey("EconomicIndex", on_delete=models.PROTECT)
 
     def __str__(self):
         return f"Название экономического показателя: {self.macro_economic_index.name}, название файла: {self.path}"

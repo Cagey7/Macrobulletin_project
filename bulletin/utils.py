@@ -18,15 +18,15 @@ topics_data = [
 
 
 economic_indices = [
-    ['1.1. ВАЛОВЫЙ ВНУТРЕННИЙ ПРОДУКТ (ВВП)', 'gdp', '1. МАКРОЭКОНОМИКА'],
+    # ['1.1. ВАЛОВЫЙ ВНУТРЕННИЙ ПРОДУКТ (ВВП)', 'gdp', '1. МАКРОЭКОНОМИКА'],
     # ['РОСТ ВВП ОТДЕЛЬНЫХ СТРАН (В %)', 'gdp_growth', '1. МАКРОЭКОНОМИКА'],
-    ['1.2. ИНДЕКС ФИЗИЧЕСКОГО ОБЪЕМА (ИФО)', 'ppi', '1. МАКРОЭКОНОМИКА'],
+    # ['1.2. ИНДЕКС ФИЗИЧЕСКОГО ОБЪЕМА (ИФО)', 'ppi', '1. МАКРОЭКОНОМИКА'],
     ['1.3. ПРОИЗВОДИТЕЛЬНОСТЬ ТРУДА', 'labor-productivity', '1. МАКРОЭКОНОМИКА'],
     ['1.4. ИНВЕСТИЦИИ В ОСНОВНОЙ КАПИТАЛ', 'capital-investment', '1. МАКРОЭКОНОМИКА'],
     # ['ИНВЕСТИЦИИ В ОСНОВНОЙ КАПИТАЛ ПО ИСТОЧНИКАМ ФИНАНСИРОВАНИЯ', 'capital-investment-financing', '1. МАКРОЭКОНОМИКА'],
     # ['СТАТИСТИКА ТРУДА ПО СТРАНАМ', 'employment-avunemployment-salary', '1. МАКРОЭКОНОМИКА'],
     ['1.6. ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН И ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ', 'consumer-price-index', '1. МАКРОЭКОНОМИКА'],
-    ['1.7. ИНДЕКС ЦЕН НА СОЦИАЛЬНО-ЗНАЧИМЫЕ ПОТРЕБИТЕЛЬСКИЕ ТОВАРЫ', 'cpi-social-consumer-goods', '1. МАКРОЭКОНОМИКА'],
+    # ['1.7. ИНДЕКС ЦЕН НА СОЦИАЛЬНО-ЗНАЧИМЫЕ ПОТРЕБИТЕЛЬСКИЕ ТОВАРЫ', 'cpi-social-consumer-goods', '1. МАКРОЭКОНОМИКА'],
     # ['ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН ПО СТРАНАМ', 'cpi-by-country', '1. МАКРОЭКОНОМИКА'],
     # ['МЕЖДУНАРОДНЫЕ РЕЗЕРВЫ И КУРСЫ ВАЛЮТ', 'intreserves-exchange-rates', '1. МАКРОЭКОНОМИКА'],
     # ['ГОСДОЛГ В % К ВВП ПО СТРАНАМ', 'government-debt-gdp', '1. МАКРОЭКОНОМИКА'],
@@ -50,7 +50,7 @@ economic_indices = [
     # ['КОНСЕНСУС ПРОГНОЗ РОСТА ВВП КАЗАХСТАНА И ДРУГИХ СТРАН (%) И ЦЕН НА НЕФТЬ ($/БАРРЕЛЬ)', 'gdp-oil-forecast', '1. МАКРОЭКОНОМИКА'],
     
     
-    ['2.1. СТАТИСТИКА ТРУДА', 'labor-market-statistics', '2. РЫНОК ТРУДА'],
+    # ['2.1. СТАТИСТИКА ТРУДА', 'labor-market-statistics', '2. РЫНОК ТРУДА'],
     ['2.2. СРЕДНЕМЕСЯЧНАЯ ЗАРАБОТНАЯ ПЛАТА ПО ВИДАМ ЭКОНОМИЧЕСКОЙ ДЕЯТЕЛЬНОСТИ (В ТЫС. ТЕНГЕ)', 'avsalary-economic-activity', '2. РЫНОК ТРУДА'],
     ['2.3. ИНДЕКС НОМИНАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ', 'nominal-wage-index', '2. РЫНОК ТРУДА'],
     ['2.4. ИНДЕКС РЕАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ', 'real-wage-index', '2. РЫНОК ТРУДА'],
@@ -63,7 +63,7 @@ economic_indices = [
     ['2.11. ДОЛЯ НАСЕЛЕНИЯ, ИМЕЮЩЕГО ДОХОДЫ НИЖЕ ВЕЛИЧИНЫ ПРОЖИТОЧНОГО МИНИМУМА', 'popshare-below-povline', '2. РЫНОК ТРУДА'],
     
     
-    ['3.1. ОБЩИЕ ПОКАЗАТЕЛИ', 'general-indicators', '3. ПРЕДПРИНИМАТЕЛЬСТВО'],
+    # ['3.1. ОБЩИЕ ПОКАЗАТЕЛИ', 'general-indicators', '3. ПРЕДПРИНИМАТЕЛЬСТВО'],
     ['3.2. ОТРАСЛЕВАЯ СПЕЦИАЛИЗАЦИЯ СУБЪЕКТОВ МСП В 2021 ГОДУ, В %', 'sectoral-specialization', '3. ПРЕДПРИНИМАТЕЛЬСТВО'],
     
     
@@ -73,7 +73,7 @@ economic_indices = [
     ['4.4. ОБЪЕМЫ ПРОМЫШЛЕННОГО ПРОИЗВОДСТВА В ДЕЙСТВУЮЩИХ ЦЕНАХ', 'industrial-production-current', '4. РЕГИОНЫ'],
     ['4.5. ЧИСЛЕННОСТЬ НАСЕЛЕНИЯ РЕСПУБЛИКИ КАЗАХСТАН НА НАЧАЛО ГОДА', 'population-beginning-year-kz', '4. РЕГИОНЫ'],
     ['4.6. ЧИСЛЕННОСТЬ НАСЕЛЕНИЯ НА НАЧАЛО ГОДА', 'population-beginning-year', '4. РЕГИОНЫ'],
-    # ['УРБАНИЗАЦИЯ (ДОЛЯ ГОРОДСКОГО К ОБЩЕЙ ЧИСЛЕННОСТИ НАСЕЛЕНИЯ РАСЧЁТНО)', 'urbanization-percent', '4. РЕГИОНЫ'],
+    ['4.7. УРБАНИЗАЦИЯ (ДОЛЯ ГОРОДСКОГО К ОБЩЕЙ ЧИСЛЕННОСТИ НАСЕЛЕНИЯ РАСЧЁТНО)', 'urbanization-percent', '4. РЕГИОНЫ'],
     
     
     # ['ОСНОВНЫЕ ПОКАЗАТЕЛИ В СФЕРЕ НИЗКОУГЛЕРОДНОГО РАЗВИТИЯ И ОКРУЖАЮЩЕЙ СРЕДЫ', 'low-carbon-environment', 'ЗЕЛЕНАЯ ЭКОНОМИКА'],
@@ -116,16 +116,16 @@ economic_indices = [
 
 
 table_info = [
-    ['1.1. ВАЛОВЫЙ ВНУТРЕННИЙ ПРОДУКТ (ВВП)', '1-1gdp'],
+    # ['1.1. ВАЛОВЫЙ ВНУТРЕННИЙ ПРОДУКТ (ВВП)', '1-1gdp'],
     # ['РОСТ ВВП ОТДЕЛЬНЫХ СТРАН (В %)', 'gdp_growth'],
-    ['1.2. ИНДЕКС ФИЗИЧЕСКОГО ОБЪЕМА (ИФО)', '1-2ppi'],
+    # ['1.2. ИНДЕКС ФИЗИЧЕСКОГО ОБЪЕМА (ИФО)', '1-2ppi'],
     ['1.3. ПРОИЗВОДИТЕЛЬНОСТЬ ТРУДА', '1-3labor_productivity'],
     ['1.4. ИНВЕСТИЦИИ В ОСНОВНОЙ КАПИТАЛ', '1-4capital_investment'],
     # ['ИНВЕСТИЦИИ В ОСНОВНОЙ КАПИТАЛ ПО ИСТОЧНИКАМ ФИНАНСИРОВАНИЯ', 'capital_investment_financing'],
     # ['СТАТИСТИКА ТРУДА ПО СТРАНАМ', 'employment_unemployment_average_salary'],
     ['1.6. ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН И ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ', '1-6consumer_price_index1'],
     ['1.6. ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН И ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ', '1-6consumer_price_index2'],
-    ['1.7. ИНДЕКС ЦЕН НА СОЦИАЛЬНО-ЗНАЧИМЫЕ ПОТРЕБИТЕЛЬСКИЕ ТОВАРЫ', '1-7cpi_social_consumer_goods'],
+    # ['1.7. ИНДЕКС ЦЕН НА СОЦИАЛЬНО-ЗНАЧИМЫЕ ПОТРЕБИТЕЛЬСКИЕ ТОВАРЫ', '1-7cpi_social_consumer_goods'],
     # ['ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН ПО СТРАНАМ', 'cpi_by_country'],
     # ['МЕЖДУНАРОДНЫЕ РЕЗЕРВЫ И КУРСЫ ВАЛЮТ', 'international_reserves_exchange_rates1'],
     # ['МЕЖДУНАРОДНЫЕ РЕЗЕРВЫ И КУРСЫ ВАЛЮТ', 'international_reserves_exchange_rates2'],
@@ -153,7 +153,7 @@ table_info = [
     # ['КОНСЕНСУС ПРОГНОЗ РОСТА ВВП КАЗАХСТАНА И ДРУГИХ СТРАН (%) И ЦЕН НА НЕФТЬ ($/БАРРЕЛЬ)', 'consensus_gdp_growth_and_oil_prices_forecast3'],
     
     
-    ['2.1. СТАТИСТИКА ТРУДА', '2-1labor_market_statistics'],
+    # ['2.1. СТАТИСТИКА ТРУДА', '2-1labor_market_statistics'],
     ['2.2. СРЕДНЕМЕСЯЧНАЯ ЗАРАБОТНАЯ ПЛАТА ПО ВИДАМ ЭКОНОМИЧЕСКОЙ ДЕЯТЕЛЬНОСТИ (В ТЫС. ТЕНГЕ)', '2-2average_salary_by_economic_activity_in_thousand_tenge'],
     ['2.3. ИНДЕКС НОМИНАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ', '2-3nominal_wage_index'],
     ['2.4. ИНДЕКС РЕАЛЬНОЙ ЗАРАБОТНОЙ ПЛАТЫ РАБОТНИКОВ', '2-4real_wage_index'],
@@ -166,8 +166,8 @@ table_info = [
     ['2.11. ДОЛЯ НАСЕЛЕНИЯ, ИМЕЮЩЕГО ДОХОДЫ НИЖЕ ВЕЛИЧИНЫ ПРОЖИТОЧНОГО МИНИМУМА', '2-11population_share_below_poverty_line'],
     
     
-    ['3.1. ОБЩИЕ ПОКАЗАТЕЛИ', '3-1general_indicators1'],
-    ['3.1. ОБЩИЕ ПОКАЗАТЕЛИ', '3-1general_indicators2'],
+    # ['3.1. ОБЩИЕ ПОКАЗАТЕЛИ', '3-1general_indicators1'],
+    # ['3.1. ОБЩИЕ ПОКАЗАТЕЛИ', '3-1general_indicators2'],
     ['3.2. ОТРАСЛЕВАЯ СПЕЦИАЛИЗАЦИЯ СУБЪЕКТОВ МСП В 2021 ГОДУ, В %', '3-2sectoral_specialization_msp_2021_percentage'],
     
     
@@ -179,7 +179,7 @@ table_info = [
     ['4.6. ЧИСЛЕННОСТЬ НАСЕЛЕНИЯ НА НАЧАЛО ГОДА', '4-6population_at_the_beginning_of_the_year1'],
     ['4.6. ЧИСЛЕННОСТЬ НАСЕЛЕНИЯ НА НАЧАЛО ГОДА', '4-6population_at_the_beginning_of_the_year2'],
     ['4.6. ЧИСЛЕННОСТЬ НАСЕЛЕНИЯ НА НАЧАЛО ГОДА', '4-6population_at_the_beginning_of_the_year3'],
-    # ['УРБАНИЗАЦИЯ (ДОЛЯ ГОРОДСКОГО К ОБЩЕЙ ЧИСЛЕННОСТИ НАСЕЛЕНИЯ РАСЧЁТНО)', 'urbanization_as_percentage_of_total_population_estimate'],
+    ['4.7. УРБАНИЗАЦИЯ (ДОЛЯ ГОРОДСКОГО К ОБЩЕЙ ЧИСЛЕННОСТИ НАСЕЛЕНИЯ РАСЧЁТНО)', '4-7urbanization_as_percentage_of_total_population_estimate'],
     
     
     # ['ОСНОВНЫЕ ПОКАЗАТЕЛИ В СФЕРЕ НИЗКОУГЛЕРОДНОГО РАЗВИТИЯ И ОКРУЖАЮЩЕЙ СРЕДЫ', 'low_carbon_development_and_environmental_indicators'],
@@ -223,7 +223,7 @@ table_info = [
 
 def delete_all():
     Table.objects.all().delete()
-    Economic_index.objects.all().delete()
+    EconomicIndex.objects.all().delete()
     Topic.objects.all().delete()
 
 
@@ -236,13 +236,13 @@ def insert_topics(topics_data):
 def insert_economic_indices(economic_indices):
     for index in economic_indices:
         topic = Topic.objects.get(name=index[2])
-        insert_index = Economic_index(name=index[0], slug=index[1], macro_topic=topic)
+        insert_index = EconomicIndex(name=index[0], slug=index[1], macro_topic=topic)
         insert_index.save()
 
 
 def insert_tables(table_info):
     for table in table_info:
-        economic_index = Economic_index.objects.get(name=table[0])
+        economic_index = EconomicIndex.objects.get(name=table[0])
         table = Table(path=table[1], macro_economic_index=economic_index)
         table.save()
 

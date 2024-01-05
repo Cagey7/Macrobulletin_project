@@ -2,7 +2,6 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from utils import update_topics
 
 
 def main():
@@ -20,5 +19,4 @@ def main():
 
 
 if __name__ == '__main__':
-    # update_topics()
     main()

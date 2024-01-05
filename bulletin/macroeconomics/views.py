@@ -59,9 +59,9 @@ def macroindex(request, macroindex_slug):
     
     if request.GET:
         name = request.GET.get("name")
-        macro_economic_index_id = Economic_index.objects.get(slug=name).id
+        macro_economic_index_id = EconomicIndex.objects.get(slug=name).id
         tables = Table.objects.filter(macro_economic_index__id=macro_economic_index_id)
-        economic_index = Economic_index.objects.get(id=macro_economic_index_id)
+        economic_index = EconomicIndex.objects.get(id=macro_economic_index_id)
         context = {
             "tables": tables,
             "economic_index": economic_index,
@@ -70,7 +70,7 @@ def macroindex(request, macroindex_slug):
         return render(request, "macroeconomics/economic_index.html", context=context)
     
     topic_id = Topic.objects.get(slug=macroindex_slug).id
-    economic_indices = Economic_index.objects.filter(macro_topic_id=topic_id)
+    economic_indices = EconomicIndex.objects.filter(macro_topic_id=topic_id)
     topics = Topic.objects.all()
     context = {
         "topics": topics,
