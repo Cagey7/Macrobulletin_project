@@ -143,15 +143,6 @@
     "model": "macroeconomics.economicindex",
     "pk": 13,
     "fields": {
-      "name": "2.10. ИНДЕКС РЕАЛЬНЫХ ДЕНЕЖНЫХ ДОХОДОВ В РАЗРЕЗЕ РЕГИОНОВ",
-      "slug": "realincome-index-region",
-      "macro_topic": 2
-    }
-  },
-  {
-    "model": "macroeconomics.economicindex",
-    "pk": 14,
-    "fields": {
       "name": "2.11. ДОЛЯ НАСЕЛЕНИЯ, ИМЕЮЩЕГО ДОХОДЫ НИЖЕ ВЕЛИЧИНЫ ПРОЖИТОЧНОГО МИНИМУМА",
       "slug": "popshare-below-povline",
       "macro_topic": 2
@@ -159,7 +150,7 @@
   },
   {
     "model": "macroeconomics.economicindex",
-    "pk": 15,
+    "pk": 14,
     "fields": {
       "name": "3.2. ОТРАСЛЕВАЯ СПЕЦИАЛИЗАЦИЯ СУБЪЕКТОВ МСП В 2021 ГОДУ, В %",
       "slug": "sectoral-specialization",
@@ -168,7 +159,7 @@
   },
   {
     "model": "macroeconomics.economicindex",
-    "pk": 16,
+    "pk": 15,
     "fields": {
       "name": "4.1. ВАЛОВЫЙ РЕГИОНАЛЬНЫЙ ПРОДУКТ И ИНДЕКС ФИЗИЧЕСКОГО ОБЪЕМА",
       "slug": "rgdp-pvi",
@@ -177,7 +168,7 @@
   },
   {
     "model": "macroeconomics.economicindex",
-    "pk": 17,
+    "pk": 16,
     "fields": {
       "name": "4.2. ВАЛОВЫЙ РЕГИОНАЛЬНЫЙ ПРОДУКТ НА ДУШУ НАСЕЛЕНИЯ",
       "slug": "pcrgdp",
@@ -186,7 +177,7 @@
   },
   {
     "model": "macroeconomics.economicindex",
-    "pk": 18,
+    "pk": 17,
     "fields": {
       "name": "4.3. ВАЛОВЫЙ ВЫПУСК ПРОДУКЦИИ (УСЛУГ) СЕЛЬСКОГО, ЛЕСНОГО И РЫБНОГО ХОЗЯЙСТВА",
       "slug": "agri-forestry-fishery",
@@ -195,7 +186,7 @@
   },
   {
     "model": "macroeconomics.economicindex",
-    "pk": 19,
+    "pk": 18,
     "fields": {
       "name": "4.4. ОБЪЕМЫ ПРОМЫШЛЕННОГО ПРОИЗВОДСТВА В ДЕЙСТВУЮЩИХ ЦЕНАХ",
       "slug": "industrial-production-current",
@@ -204,7 +195,7 @@
   },
   {
     "model": "macroeconomics.economicindex",
-    "pk": 20,
+    "pk": 19,
     "fields": {
       "name": "4.5. ЧИСЛЕННОСТЬ НАСЕЛЕНИЯ РЕСПУБЛИКИ КАЗАХСТАН НА НАЧАЛО ГОДА",
       "slug": "population-beginning-year-kz",
@@ -213,7 +204,7 @@
   },
   {
     "model": "macroeconomics.economicindex",
-    "pk": 21,
+    "pk": 20,
     "fields": {
       "name": "4.6. ЧИСЛЕННОСТЬ НАСЕЛЕНИЯ НА НАЧАЛО ГОДА",
       "slug": "population-beginning-year",
@@ -222,7 +213,7 @@
   },
   {
     "model": "macroeconomics.economicindex",
-    "pk": 22,
+    "pk": 21,
     "fields": {
       "name": "4.7. УРБАНИЗАЦИЯ (ДОЛЯ ГОРОДСКОГО К ОБЩЕЙ ЧИСЛЕННОСТИ НАСЕЛЕНИЯ РАСЧЁТНО)",
       "slug": "urbanization-percent",
@@ -249,7 +240,7 @@
     "model": "macroeconomics.table",
     "pk": 3,
     "fields": {
-      "excel": "excels/1-4capital_investment.xlsx",
+      "excel": "excels/1-4capital_investment1.xlsx",
       "macro_economic_index": 3
     }
   },
@@ -257,15 +248,15 @@
     "model": "macroeconomics.table",
     "pk": 4,
     "fields": {
-      "excel": "excels/1-6consumer_price_index1.xlsx",
-      "macro_economic_index": 4
+      "excel": "excels/1-4capital_investment2.xlsx",
+      "macro_economic_index": 3
     }
   },
   {
     "model": "macroeconomics.table",
     "pk": 5,
     "fields": {
-      "excel": "excels/1-6consumer_price_index2.xlsx",
+      "excel": "excels/1-6consumer_price_index1.xlsx",
       "macro_economic_index": 4
     }
   },
@@ -273,13 +264,21 @@
     "model": "macroeconomics.table",
     "pk": 6,
     "fields": {
+      "excel": "excels/1-6consumer_price_index2.xlsx",
+      "macro_economic_index": 4
+    }
+  },
+  {
+    "model": "macroeconomics.table",
+    "pk": 7,
+    "fields": {
       "excel": "excels/2-2average_salary_by_economic_activity_in_thousand_tenge.xlsx",
       "macro_economic_index": 5
     }
   },
   {
     "model": "macroeconomics.table",
-    "pk": 7,
+    "pk": 8,
     "fields": {
       "excel": "excels/2-3nominal_wage_index.xlsx",
       "macro_economic_index": 6
@@ -287,7 +286,7 @@
   },
   {
     "model": "macroeconomics.table",
-    "pk": 8,
+    "pk": 9,
     "fields": {
       "excel": "excels/2-4real_wage_index.xlsx",
       "macro_economic_index": 7
@@ -295,7 +294,7 @@
   },
   {
     "model": "macroeconomics.table",
-    "pk": 9,
+    "pk": 10,
     "fields": {
       "excel": "excels/2-5average_nominal_salary_by_region_in_thousand_tenge.xlsx",
       "macro_economic_index": 8
@@ -303,7 +302,7 @@
   },
   {
     "model": "macroeconomics.table",
-    "pk": 10,
+    "pk": 11,
     "fields": {
       "excel": "excels/2-6nominal_wage_index_by_region.xlsx",
       "macro_economic_index": 9
@@ -311,7 +310,7 @@
   },
   {
     "model": "macroeconomics.table",
-    "pk": 11,
+    "pk": 12,
     "fields": {
       "excel": "excels/2-7real_wage_index_by_region.xlsx",
       "macro_economic_index": 10
@@ -319,7 +318,7 @@
   },
   {
     "model": "macroeconomics.table",
-    "pk": 12,
+    "pk": 13,
     "fields": {
       "excel": "excels/2-8average_per_capita_nominal_income_by_region_in_tenge.xlsx",
       "macro_economic_index": 11
@@ -327,7 +326,7 @@
   },
   {
     "model": "macroeconomics.table",
-    "pk": 13,
+    "pk": 14,
     "fields": {
       "excel": "excels/2-9nominal_income_index_by_region.xlsx",
       "macro_economic_index": 12
@@ -335,18 +334,10 @@
   },
   {
     "model": "macroeconomics.table",
-    "pk": 14,
-    "fields": {
-      "excel": "excels/2-10real_income_index_by_region.xlsx",
-      "macro_economic_index": 13
-    }
-  },
-  {
-    "model": "macroeconomics.table",
     "pk": 15,
     "fields": {
       "excel": "excels/2-11population_share_below_poverty_line.xlsx",
-      "macro_economic_index": 14
+      "macro_economic_index": 13
     }
   },
   {
@@ -354,7 +345,7 @@
     "pk": 16,
     "fields": {
       "excel": "excels/3-2sectoral_specialization_msp_2021_percentage.xlsx",
-      "macro_economic_index": 15
+      "macro_economic_index": 14
     }
   },
   {
@@ -362,7 +353,7 @@
     "pk": 17,
     "fields": {
       "excel": "excels/4-1regional_gross_domestic_product_and_physical_volume_index.xlsx",
-      "macro_economic_index": 16
+      "macro_economic_index": 15
     }
   },
   {
@@ -370,7 +361,7 @@
     "pk": 18,
     "fields": {
       "excel": "excels/4-2per_capita_regional_gross_domestic_product.xlsx",
-      "macro_economic_index": 17
+      "macro_economic_index": 16
     }
   },
   {
@@ -378,7 +369,7 @@
     "pk": 19,
     "fields": {
       "excel": "excels/4-3output_of_agricultural_forestry_and_fishery_production.xlsx",
-      "macro_economic_index": 18
+      "macro_economic_index": 17
     }
   },
   {
@@ -386,7 +377,7 @@
     "pk": 20,
     "fields": {
       "excel": "excels/4-4industrial_production_volume_at_current_prices.xlsx",
-      "macro_economic_index": 19
+      "macro_economic_index": 18
     }
   },
   {
@@ -394,7 +385,7 @@
     "pk": 21,
     "fields": {
       "excel": "excels/4-5population_at_the_beginning_of_the_year_kz.xlsx",
-      "macro_economic_index": 20
+      "macro_economic_index": 19
     }
   },
   {
@@ -402,7 +393,7 @@
     "pk": 22,
     "fields": {
       "excel": "excels/4-6population_at_the_beginning_of_the_year1.xlsx",
-      "macro_economic_index": 21
+      "macro_economic_index": 20
     }
   },
   {
@@ -410,7 +401,7 @@
     "pk": 23,
     "fields": {
       "excel": "excels/4-6population_at_the_beginning_of_the_year2.xlsx",
-      "macro_economic_index": 21
+      "macro_economic_index": 20
     }
   },
   {
@@ -418,7 +409,7 @@
     "pk": 24,
     "fields": {
       "excel": "excels/4-6population_at_the_beginning_of_the_year3.xlsx",
-      "macro_economic_index": 21
+      "macro_economic_index": 20
     }
   },
   {
@@ -426,7 +417,7 @@
     "pk": 25,
     "fields": {
       "excel": "excels/4-7urbanization_as_percentage_of_total_population_estimate.xlsx",
-      "macro_economic_index": 22
+      "macro_economic_index": 21
     }
   }
 ]
