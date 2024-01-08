@@ -41,3 +41,7 @@ class Table(models.Model):
     def __str__(self):
         return f"Название экономического показателя: {self.macro_economic_index.name}, название файла: {self.excel}"
 
+
+class Document(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    doc = models.FileField(upload_to="docs", default=None, blank=True, null=True)

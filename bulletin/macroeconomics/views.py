@@ -1,4 +1,3 @@
-from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout
@@ -87,7 +86,8 @@ def main_macroindex(request):
     topics = Topic.objects.all()
     context = {
         "topics": topics,
-        "title": "Макроэкономика"
+        "title": "Макроэкономика",
+        "doc": Document.objects.order_by('-id').first()
     }
     return render(request, "macroeconomics/macroindex.html", context=context)
 
