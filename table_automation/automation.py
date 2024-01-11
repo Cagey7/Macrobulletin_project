@@ -61,7 +61,7 @@ class Automation:
 
 
     def get_response(self, url):
-        response = requests.get(url)
+        response = requests.get(url, verify=False)
         if response.status_code == 200:
             return response
         else:

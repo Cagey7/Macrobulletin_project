@@ -4,7 +4,7 @@ def main():
     automation = Automation("eri_taldau", "postgres", "123456", create_logs=True)
     automation.db_connection()
     
-    # # РАЗДЕЛ 1 МАКРОЭКОНОМИКА
+    # РАЗДЕЛ 1 МАКРОЭКОНОМИКА
     # # 1.1 ВАЛОВЫЙ ВНУТРЕННИЙ ПРОДУКТ
     # automation.insert_data("gdp", "ВВП", "year", 
     #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/2709379?period=7&dics=67", 
@@ -22,11 +22,22 @@ def main():
     #                     "region", "created_at", "value", "description")
     # automation.insert_data("physical_volume_index_industry", "ИФО Промышленность", "year", 
     #                     "https://www.taldau.stat.gov.kz/ru/Api/GetIndexData/701625?period=7&dics=68,4303,848", 
-    #                     "region", "created_at", "value", "description")
+    #                     "region", "activity_type", "periods_corellation", "created_at", "value", "description")
     # automation.insert_data("physical_volume_index_industry", "ИФО Промышленность", "month_accum", 
     #                     "https://www.taldau.stat.gov.kz/ru/Api/GetIndexData/701625?period=8&dics=68,4303,848", 
-    #                     "region", "created_at", "value", "description")
-    
+    #                     "region", "activity_type", "periods_corellation", "created_at", "value", "description")
+    # automation.insert_data("physical_volume_index_crop", "ИФО растениеводство", "year", 
+    #                     "https://www.taldau.stat.gov.kz/ru/Api/GetIndexData/701227?period=7&dics=67,488,848", 
+    #                     "region", "agriculture_type", "periods_corellation", "created_at", "value", "description")
+    # automation.insert_data("physical_volume_index_crop", "ИФО растениеводство", "month_accum", 
+    #                     "https://www.taldau.stat.gov.kz/ru/Api/GetIndexData/701227?period=8&dics=67,488,848", 
+    #                     "region", "agriculture_type", "periods_corellation", "created_at", "value", "description")
+    # automation.insert_data("physical_volume_index_grains", "ИФО Сбор зерновых культур, млн  тонн", "year", 
+    #                     "https://www.taldau.stat.gov.kz/ru/Api/GetIndexData/701276?period=7&dics=68,109,488,3136", 
+    #                     "region", "soil_type", "agriculture_type", "crop_type", "created_at", "value", "description")
+    # automation.insert_data("physical_volume_index_grains", "ИФО Сбор зерновых культур, млн  тонн", "year_once", 
+    #                     "https://www.taldau.stat.gov.kz/ru/Api/GetIndexData/701276?period=12&dics=68,109,488,3136", 
+    #                     "region", "soil_type", "agriculture_type", "crop_type", "created_at", "value", "description")
     # automation.insert_data("physical_volume_index_livestock", "ИФО животноводство", "year", 
     #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/701228?period=7&dics=67,915,488,848", 
     #                     "region", "activity_type", "agriculture_type", "periods_corellation", "created_at", "value", "description")
@@ -39,6 +50,12 @@ def main():
     # automation.insert_data("physical_volume_index_housing_pr", "ИФО ввод жилья, в %", "month_accum", 
     #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/701939?period=8&dics=68,776,848,2987", 
     #                     "region", "area_type", "periods_corellation", "facility_type", "created_at", "value", "description")
+    # automation.insert_data("physical_volume_index_opt", "ИФО оптовая торговля", "month_accum", 
+    #                     "https://www.taldau.stat.gov.kz/ru/Api/GetIndexData/702022?period=8&dics=68,316,848", 
+    #                     "region", "selling_type", "periods_corellation", "created_at", "value", "description")
+    # automation.insert_data("physical_volume_index_roz", "ИФО розничная торговля", "month_accum", 
+    #                     "https://www.taldau.stat.gov.kz/ru/Api/GetIndexData/702041?period=8&dics=68,776,848,3013", 
+    #                     "region", "area_type", "periods_corellation", "product_structure", "created_at", "value", "description")
     # automation.insert_data("physical_volume_index_activity", "ИФО Виды экономической деятельности", "year", 
     #                     "https://www.taldau.stat.gov.kz/ru/Api/GetIndexData/700917?period=7&dics=67,915", 
     #                     "region", "activity_type", "created_at", "value", "description")
@@ -47,20 +64,27 @@ def main():
     #                     "region", "activity_type", "created_at", "value", "description")
 
     # # 1.3 ПРОИЗВОДИТЕЛЬНОСТЬ ТРУДА
-    # automation.insert_data("labor_productivity", "Производительность труда", "year", 
-    #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/4023003?period=7&dics=67,915", 
-    #                     "region", "activity_type", "created_at", "value", "description")
     # automation.insert_data("labor_productivity", "Производительность труда", "quarter_accum", 
     #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/4023003?period=9&dics=67,915", 
     #                     "region", "activity_type", "created_at", "value", "description")
+    # automation.insert_data("labor_productivity_indeces", "Производительность труда индексы", "quarter_accum", 
+    #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/4023004?period=9&dics=67,915", 
+    #                     "region", "activity_type", "created_at", "value", "description")
+    # automation.insert_data("labor_productivity_ind", "Производительность труда Производительность труда тыс. тенге", "quarter_accum", 
+    #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/4023003?period=9&dics=67", 
+    #                     "region", "created_at", "value", "description")
+    # automation.insert_data("labor_productivity_ind_indeces", "Производительность труда Производительность труда тыс. тенге индекс", "quarter_accum", 
+    #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/4023004?period=9&dics=67", 
+    #                     "region", "created_at", "value", "description")
+
     
-    # # 1.4 ИНВЕСТИЦИИ В ОСНОВНОЙ КАПИТАЛ + ИНВЕСТИЦИИ В ОСНОВНОЙ КАПИТАЛ ПО ИСТОЧНИКАМ ФИНАНСИРОВАНИЯ
-    # automation.insert_data("fixed_capital_investment", "Инвестиции в оснвовной капитал", "year", 
-    #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/701830?period=7&dics=68,776,59,459,3028", 
-    #                     "region", "area_type", "property_type", "funding_source", "activity_type", "created_at", "value", "description")
-    # automation.insert_data("fixed_capital_investment", "Инвестиции в оснвовной капитал", "month_accum", 
-    #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/701830?period=8&dics=68,90,459,3028", 
-    #                     "region", "branch_size", "funding_source", "activity_type", "created_at", "value", "description")
+    # 1.4 ИНВЕСТИЦИИ В ОСНОВНОЙ КАПИТАЛ + ИНВЕСТИЦИИ В ОСНОВНОЙ КАПИТАЛ ПО ИСТОЧНИКАМ ФИНАНСИРОВАНИЯ
+    automation.insert_data("fixed_capital_investment", "Инвестиции в оснвовной капитал", "month_accum", 
+                        "https://taldau.stat.gov.kz/ru/Api/GetIndexData/701830?period=8&dics=68,90,459,3028", 
+                        "region", "branch_size", "funding_source", "activity_type", "created_at", "value", "description")
+    # automation.insert_data("fixed_capital_investment_indeces", "Инвестиции в оснвовной капитал индексы", "month_accum", 
+    #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/701852?period=8&dics=68,776,848,3028", 
+    #                     "region", "area_type", "periods_corellation", "activity_type", "created_at", "value", "description")
 
     # # 1.6 ИНДЕКС ПОТРЕБИТЕЛЬСКИХ ЦЕН И ИНДЕКС ЦЕН ПРОИЗВОДИТЕЛЕЙ
     # automation.insert_data("consumer_price_index", "Индекс потребительских цен", "month",
@@ -170,9 +194,9 @@ def main():
     #                     "region", "created_at", "value", "description")
     
     # # 2.11 ДОЛЯ НАСЕЛЕНИЯ, ИМЕЮЩЕГО ДОХОДЫ НИЖЕ ВЕЛИЧИНЫ ПРОЖИТОЧНОГО МИНИМУМА
-    automation.insert_data("pop_income_below_subsistence", "Доля населения, имеющего доходы ниже величины прожиточного минимума", "quarter", 
-                        "https://taldau.stat.gov.kz/ru/Api/GetIndexData/704498?period=5&dics=67,749", 
-                        "region", "area_type", "created_at", "value", "description")
+    # automation.insert_data("pop_income_below_subsistence", "Доля населения, имеющего доходы ниже величины прожиточного минимума", "quarter", 
+    #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/704498?period=5&dics=67,749", 
+    #                     "region", "area_type", "created_at", "value", "description")
     # automation.insert_data("pop_income_below_subsistence", "Доля населения, имеющего доходы ниже величины прожиточного минимума", "year", 
     #                     "https://taldau.stat.gov.kz/ru/Api/GetIndexData/704498?period=7&dics=67,749", 
     #                     "region", "area_type", "created_at", "value", "description")

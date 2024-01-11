@@ -33,11 +33,6 @@ class CreateMonthTable(FillTable):
             )
         )
         sorted_data = self.cur.fetchall()
-        print(sorted_data)
-        print(start_year)
-        print(start_month)
-        print(end_year)
-        print(end_month)
 
         return sorted_data, start_year, start_month, end_year, end_month
 

@@ -2,6 +2,8 @@ import os
 from sql import *
 from table_info import *
 from automation import Automation
+from table_info import *
+from datetime import datetime
 
 
 class FillTable(Automation):
@@ -9,7 +11,7 @@ class FillTable(Automation):
         super().__init__(*args, **kwargs)
         current_directory = os.path.abspath(os.getcwd())
         parent_directory = os.path.dirname(current_directory)
-        self.excel_path = os.path.join(parent_directory, "bulletin", "media", "excels")
+        self.excel_path = os.path.join(parent_directory, "media", "excels")
 
     def romam_to_arabic(self, num):
         if num == 1:
@@ -34,3 +36,27 @@ class FillTable(Automation):
                 return float(num)
             else:
                 return float(round(num/1000, 1))
+            
+    def last_quarter_month(self, accum_type, sorted_data, date, i):
+        if accum_type == "quarter":
+            for quarter in reversed(quarters):
+                last_month = [x for x in sorted_data if x[i-1] == (f"Январь - {quarter[1]} {date.year} г. (кв.)")]
+                if len(last_month) > 2:
+                    max_date = max(last_month, key=lambda x: x[i])[i]
+                    accum_description =  f"Январь - {quarter[1]}"
+                    break
+                else:
+                    max_date = datetime(1, 1, 1)
+                    accum_description = ""
+        elif accum_type == "month":
+            for month in reversed(months):
+                last_month = [x for x in sorted_data if x[i-1] == (f"Январь - {month[1]} {date.year} г. (мес.)")]
+                if len(last_month) > 2:
+                    max_date = max(last_month, key=lambda x: x[i])[i]
+                    accum_description =  f"Январь - {month[1]}"
+                    break
+                else:
+                    max_date = datetime(1, 1, 1)
+                    accum_description = ""
+        return max_date, accum_description
+            
